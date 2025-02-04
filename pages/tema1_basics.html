@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Basics</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>JavaScript Basics</h1>
+        <a href="../index.html" class="back-to-home">Back to Home</a>
+    </header>
+    
+    <section>
+        <h2>Ways to Use JavaScript</h2>
+        <ul>
+            <li>Inline: <code>&lt;button onclick="alert('Hello!')"&gt;Click me&lt;/button&gt;</code></li>
+            <li>Internal: Using <code>&lt;script&gt;</code> inside HTML</li>
+            <li>External: Linking a <code>.js</code> file</li>
+            <li>Console: Running JavaScript in browser dev tools</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Variables</h2>
+        <p>JavaScript has three types of variables:</p>
+        <ul>
+            <li><code>var</code> - Function-scoped, can be reassigned</li>
+            <li><code>let</code> - Block-scoped, can be reassigned</li>
+            <li><code>const</code> - Block-scoped, cannot be reassigned</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Data Types</h2>
+        <ul>
+            <li>String</li>
+            <li>Number</li>
+            <li>Boolean</li>
+            <li>Null</li>
+            <li>Undefined</li>
+            <li>Object</li>
+            <li>Symbol</li>
+            <li>BigInt</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Operators</h2>
+        <ul>
+            <li>Arithmetic: <code>+ - * / % **</code></li>
+            <li>Comparison: <code>== === != !== &gt; &lt; &gt;= &lt;=</code></li>
+            <li>Logical: <code>&& || !</code></li>
+            <li>Assignment: <code>= += -= *= /=</code></li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Functions</h2>
+        <p>Functions allow code reuse:</p>
+        <pre><code>function greet(name) {
+    return `Hello, ${name}!`;
+}
+console.log(greet("Jess"));</code></pre>
+    </section>
+    
+    <script src="../js/first_exercises.js"></script>
+
+    <footer>
+        <p><a href="../index.html">Back to Index</a></p>
+        <p>© 2025 Javascript Module</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic 2 - Functions in JavaScript</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Topic 2: Functions in JavaScript</h1>
+        <a href="../index.html" class="back-to-home">Back to Home</a>
+    </header>
+
+    <section>
+        <h2>1. Function Declarations</h2>
+        <p>A function declaration defines a function using the <code>function</code> keyword. It can be called before its definition due to hoisting.</p>
+        <pre><code>function greet(name) {
+    return "Hello, " + name + "!";
+}
+
+console.log(greet("Jess")); // Output: Hello, Jess!</code></pre>
+    </section>
+
+    <section>
+        <h2>2. Function Expressions</h2>
+        <p>Functions can also be stored in variables. Unlike declarations, function expressions are <strong>not hoisted</strong>.</p>
+        <pre><code>const greet = function(name) {
+    return "Hello, " + name + "!";
+};
+
+console.log(greet("Jess")); // Output: Hello, Jess!</code></pre>
+    </section>
+
+    <section>
+        <h2>3. Arrow Functions (Lambda Functions)</h2>
+        <p>Arrow functions provide a shorter syntax for writing functions.</p>
+        <pre><code>// Standard function
+const add = function(a, b) {
+    return a + b;
+};
+
+// Arrow function equivalent
+const add = (a, b) => a + b;
+
+console.log(add(3, 5)); // Output: 8</code></pre>
+    </section>
+
+    <section>
+        <h2>4. Immediately Invoked Function Expressions (IIFE)</h2>
+        <p>An IIFE (Immediately Invoked Function Expression) is a function that runs <strong>immediately</strong> after being defined.</p>
+        <pre><code>(function() {
+    console.log("This function runs immediately!");
+})();
+// Output: This function runs immediately!</code></pre>
+    </section>
+
+    <section>
+        <h2>5. Closures</h2>
+        <p>A closure is a function that remembers the variables from its outer scope even after the outer function has finished execution.</p>
+        <pre><code>function counter() {
+    let count = 0;
+    return function() {
+        count++;
+        return count;
+    };
+}
+
+const increment = counter();
+console.log(increment()); // Output: 1
+console.log(increment()); // Output: 2</code></pre>
+    </section>
+
+    <footer>
+        <p><a href="../index.html">Back to Index</a></p>
+        <p>© 2025 JavaScript Functions</p>
+    </footer>
+</body>
+</html>
+

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Numbers and Strings</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>JavaScript Numbers and Strings</h1>
+        <a href="../index.html" class="back-to-home">Back to Home</a>
+    </header>
+    
+    <section>
+        <h2>Numbers</h2>
+        <p>JavaScript has only one type of number: <strong>floating-point</strong>. Examples:</p>
+        <script>
+            let num1 = 10;
+            let num2 = 3.14;
+            let num3 = "100";
+            document.write("Integer: " + num1 + "<br>");
+            document.write("Float: " + num2 + "<br>");
+            document.write("Converted String to Number: " + Number(num3) + "<br>");
+        </script>
+    </section>
+    
+    <section>
+        <h2>Strings</h2>
+        <p>Strings are sequences of characters enclosed in quotes:</p>
+        <script>
+            let str1 = "Hello";
+            let str2 = 'World';
+            document.write("Double Quotes: " + str1 + "<br>");
+            document.write("Single Quotes: " + str2 + "<br>");
+        </script>
+    </section>
+    
+    <section>
+        <h2>Concatenation</h2>
+        <p>Joining strings using <code>+</code> or template literals:</p>
+        <script>
+            let concat1 = str1 + " " + str2;
+            let concat2 = `${str1} ${str2}`; // Using backticks
+            document.write("Using + operator: " + concat1 + "<br>");
+            document.write("Using backticks: " + concat2 + "<br>");
+        </script>
+    </section>
+    
+    <section>
+        <h2>String Methods</h2>
+        <script>
+            let text = " JavaScript ";
+            document.write("Length: " + text.length + "<br>");
+            document.write("Uppercase: " + text.toUpperCase() + "<br>");
+            document.write("Lowercase: " + text.toLowerCase() + "<br>");
+            document.write("Trimmed: " + text.trim() + "<br>");
+            document.write("Substring: " + text.substring(0, 4) + "<br>");
+        </script>
+    </section>
+    
+    <section>
+        <h2>Number Methods</h2>
+        <script>
+            let num = 123.456;
+            document.write("Fixed (2 decimals): " + num.toFixed(2) + "<br>");
+            document.write("Precision (4 digits): " + num.toPrecision(4) + "<br>");
+            document.write("String conversion: " + num.toString() + "<br>");
+        </script>
+    </section>
+
+    <footer>
+        <p><a href="../index.html">Back to Index</a></p>
+        <p>© 2025 JavaScript Strings and Numbers</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops in JavaScript</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>JavaScript Loops</h1>
+        <a href="../index.html" class="back-to-home">Back to Home</a>
+    </header>
+
+    <section id="loops">
+        <h2>Loops in JavaScript</h2>
+        <p>Loops allow you to repeat a block of code multiple times. They are useful when you need to perform repetitive tasks. JavaScript provides three common types of loops:</p>
+
+        <h3>For Loop</h3>
+        <p>The <code>for</code> loop is used when you know the number of times you want to repeat a block of code.</p>
+        <pre><code>for (let i = 0; i < 5; i++) {
+    console.log(i); // prints 0, 1, 2, 3, 4
+}</code></pre>
+
+        <h3>While Loop</h3>
+        <p>The <code>while</code> loop repeats a block of code while a condition is true. It's useful when you don't know the number of iterations ahead of time.</p>
+        <pre><code>let i = 0;
+while (i < 5) {
+    console.log(i);
+    i++;
+}</code></pre>
+
+        <h3>Do While Loop</h3>
+        <p>The <code>do while</code> loop is similar to the <code>while</code> loop, but it guarantees the block of code will run at least once, even if the condition is false initially.</p>
+        <pre><code>let i = 0;
+do {
+    console.log(i);
+    i++;
+} while (i < 5);</code></pre>
+
+        <h3>When to Use Each Loop</h3>
+        <p>Use the <code>for</code> loop when you know how many times you want to repeat the code. Use the <code>while</code> loop when you don't know how many iterations you'll need, and use the <code>do while</code> loop when you need to ensure the code runs at least once.</p>
+
+        <h3>Example: Summing Numbers</h3>
+        <p>Let’s say you want to calculate the sum of numbers from 1 to 5:</p>
+        <pre><code>let sum = 0;
+for (let i = 1; i <= 5; i++) {
+    sum += i; // add i to sum
+}
+console.log(sum); // 15</code></pre>
+
+        <h3>Nested Loops</h3>
+        <p>You can also use loops inside of other loops, known as <strong>nested loops</strong>.</p>
+        <pre><code>for (let i = 1; i <= 3; i++) {
+    for (let j = 1; j <= 3; j++) {
+        console.log(`i = ${i}, j = ${j}`);
+    }
+}</code></pre>
+
+        <h3>Breaking Out of Loops</h3>
+        <p>You can break out of a loop early using the <code>break</code> statement:</p>
+        <pre><code>for (let i = 0; i < 10; i++) {
+    if (i === 5) break;
+    console.log(i);
+}</code></pre>
+
+        <h3>Skipping an Iteration</h3>
+        <p>You can skip the current iteration and move to the next one using the <code>continue</code> statement:</p>
+        <pre><code>for (let i = 0; i < 5; i++) {
+    if (i === 3) continue; // skips the rest of the code when i is 3
+    console.log(i);
+}</code></pre>
+    </section>
+
+    <footer>
+        <p><a href="../index.html">Back to Index</a></p>
+        <p>© 2025 JavaScript Loops</p>
+    </footer>
+</body>
+</html>

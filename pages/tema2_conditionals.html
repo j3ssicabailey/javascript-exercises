@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditionals in JavaScript</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>JavaScript Conditionals</h1>
+        <a href="../index.html" class="back-to-home">Back to Home</a>
+    </header>
+
+    <section id="conditionals">
+        <h2>Conditionals in JavaScript</h2>
+        <p>Conditionals allow us to make decisions in our code based on certain conditions. JavaScript provides several ways to perform these checks. Let's go over the most common ones:</p>
+
+        <h3>If Statement</h3>
+        <p>The <code>if</code> statement checks whether a condition is true. If it is, the associated block of code is executed.</p>
+        <pre><code>
+if (condition) {
+    // code to execute if condition is true
+}
+</code></pre>
+
+        <h3>Else If and Else</h3>
+        <p>If you want to check multiple conditions, you can use <code>else if</code> and <code>else</code> to provide additional checks.</p>
+        <pre><code>
+if (condition1) {
+    // code to execute if condition1 is true
+} else if (condition2) {
+    // code to execute if condition2 is true
+} else {
+    // code to execute if none of the conditions are true
+}
+</code></pre>
+
+        <h3>Switch Case</h3>
+        <p>The <code>switch</code> statement is used to evaluate an expression against multiple values (cases). It’s an alternative to multiple <code>if-else</code> statements.</p>
+        <pre><code>
+switch (expression) {
+    case value1:
+        // code to execute if expression === value1
+        break;
+    case value2:
+        // code to execute if expression === value2
+        break;
+    default:
+        // code to execute if no cases match
+}
+</code></pre>
+
+        <h3>Ternary Operator</h3>
+        <p>The <code>ternary operator</code> provides a shorthand way to write <code>if-else</code> statements.</p>
+        <pre><code>
+let result = (condition) ? 'True' : 'False';
+</code></pre>
+
+        <h3>Example: Checking if a number is even or odd</h3>
+        <pre><code>
+let number = 5;
+let result = (number % 2 === 0) ? 'Even' : 'Odd';
+console.log(result);
+</code></pre>
+
+        <h3>Using Conditionals in Real Life</h3>
+        <p>Imagine you have a website where users log in. You might want to check if a user is logged in or not:</p>
+        <pre><code>
+let isLoggedIn = true;
+if (isLoggedIn) {
+    console.log("Welcome back!");
+} else {
+    console.log("Please log in.");
+}
+</code></pre>
+            
+    </section>
+
+
+
+    <script src="../js/first_exercises.js"></script>
+
+    <footer>
+        <p><a href="../index.html">Back to Index</a></p>
+        <p>© 2025 Javascript Conditionals</p>
+    </footer>
+</body>
+</html>
+
