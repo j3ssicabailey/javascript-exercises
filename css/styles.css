@@ -53,10 +53,19 @@ h1, h2 {
 footer {
     text-align: center;
     padding: 15px;
-    background-color: #487a7b;
-    color: white;
+    background-color: #cccccc;;
+    color: #333;
     margin-top: 20px;
     border-radius: 15px 15px 0 0;
+    position: relative; 
+}
+
+.footer-logo {
+    position: absolute;
+    bottom: 10px; 
+    right: 40px; 
+    width: 150px; 
+    height: auto; 
 }
 
 code {
