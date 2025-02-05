@@ -150,6 +150,37 @@ drawTrainglePattern(10);
 // También debe llevar una cuenta de la cantidad máxima de rondas seguidas que se hizo sin errar. 
 // Cuando se ingresa la palabra SALIR, en vez de CARA o CRUZ, el programa debe mostrar la cantidad máxima de rondas seguidas acertadas junto a un mensaje de despedida, y terminar su ejecución.
 
+function headsOrTails() {
+    let continueGame = true;
+    const arrayHeadsTails = ["heads", "tails"];
+    let playerCounter = 0;
+    let computerCounter = 0;
+    while (continueGame) {
+        let computerChoice = arrayHeadsTails[Math.floor(Math.random() * arrayHeadsTails.length)];
+        let playerChoice = prompt("Heads or tails?: ").toLowerCase();
+        if (computerChoice === playerChoice) {
+            playerCounter += 1;
+            console.log(`Computer chose ${computerChoice}. You win this round!`)
+        } else {
+            computerCounter += 1;
+            console.log(`Computer chose ${computerChoice}. You lose this round`)
+        }
+        continueGame = confirm("Press \"continue\" to keep playing");
+        if (continueGame == false) {
+            let finalScore = `Final score: Player: ${playerCounter} Computer: ${computerCounter} `;
+        if (playerCounter > computerCounter) {
+            console.log(`You won the match! \n${finalScore}`);
+        }
+        else if (computerCounter > playerCounter) {
+            console.log(`You lost the match! \n${finalScore}`);
+        }
+        else {console.log(`It's a draw! \n${finalScore}`);}
+        break;
+        }
+    }
+}
+
+headsOrTails();
 // 10 ⚖️ Mayor o menor
 // Crear un programa que elija un número al azar entre 1 y 10. 
 // El programa debe luego pedir al usuario que intente adivinar el número. 

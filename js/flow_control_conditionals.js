@@ -48,6 +48,32 @@ daysInMonth("January");
 // Hacer un programa que permita cambiar la contraseña de usuario. Para eso tiene que responder las tres preguntas de seguridad. 
 // Si las tres preguntas son respondidas correctamente, tiene que pedir por la nueva contraseña y luego mostrar un mensaje que fue cambiada. 
 // En caso de que al menos alguna pregunta fue respondida incorrectamente debe mostrar un mensaje advirtiéndolo. Definir de antemano (hardcodear) preguntas y respuestas.
+function changePassword() {
+    const currentPassword = "abc123";
+    const securityQS = ["What's your favourite colour?", "What's your favourite food", "What's your favourite season?"];
+    const securityAs = ["green", "cheese", "summer"];
+    let allCorrect = true;
+    for (i = 0; i < securityQS.length; i++) {
+        let userAnswer = prompt(securityQS[i]);
+        if (userAnswer !== securityAs[i]) {
+            console.log("Incorrect answer");
+            allCorrect = false;
+            break;
+        }
+    }
+    if (allCorrect) {
+        console.log("All questions answered correctly");
+        let newPassword;
+        do {
+            newPassword = prompt("Please enter your new password: ");
+        } while (newPassword === currentPassword);
+        console.log(`Your new password is set to: ${newPassword}`);
+    } else {
+        return "Failed security check";
+    }
+}
+
+changePassword();
 
 // 4 🎓 Examen aprobado
 // Crear un programa que pida al usuario ingresar la nota un examen y mostrar en un mensaje si el examen está aprobado, 
@@ -167,7 +193,38 @@ console.log(rockPaperScissors());
 // Ingrese el primer color: verde
 // Ingrese el primer color: amarillo
 // Felicitaciones! Has ganado!
+function simonSays() {
+    let colorArray = ["red", "green", "blue", "yellow"];
+    let randomArray = [];
+    for (let i = 0; i < 5; i++) {  
+        let randomNumber = colorArray[Math.floor(Math.random() * colorArray.length)];
+        randomArray.push(randomNumber);
+    }
+    console.log("Simon says: " + randomArray.join(", "));
+    return randomArray;
+    
+}
 
+function userSimonSays() {
+    let sequence = simonSays();
+    let correct = true;
+    
+    for (let i = 0; i < sequence.length; i++) {
+        let userGuess = prompt(`Enter colour ${i + 1}: `);
+
+        if (userGuess !== sequence[i]) {
+            correct = false;
+            break;
+        }
+    }
+    if (correct) {
+        console.log("Well done, you got all the colours right!");
+    } else {
+        console.log("Sorry, you didn't win this time!");
+    }
+}
+
+userSimonSays();
 
 // Condicional switch
 
