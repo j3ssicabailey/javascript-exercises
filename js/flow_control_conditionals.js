@@ -265,6 +265,30 @@ console.log(showSeasonLength("SummEr"));
 // 11 🧮 Calculadora
 // Crear un programa que permita elegir entre las operaciones: SUMA, RESTA, DIVISION y MULTIPLICACION, 
 // y luego de elegida, ingresar dos números y hacer dicha operación con ella.
+function simpleCalculator() {
+    let num1 = Number(prompt("Please enter your first number: "));
+    let num2 = Number(prompt("Please enter your second number: "));
+    let result;
+    let operation = prompt("Enter the operation to perform (add, substract, multiply, divide): ");
+    switch (operation) {
+        case "add":
+            result = num1 + num2;
+            return `${num1} + ${num2} = ${result}`;
+        case "subtract":
+            result = num1 - num2;
+            return `${num1} + ${num2} = ${result}`;
+        case "multiply":
+            result = num1 * num2;
+            return `${num1} + ${num2} = ${result}`;
+        case "divide":
+            result = num1 / num2;
+            return `${num1} + ${num2} = ${result}`;
+        default:
+            return "Please try again";
+    }
+}
+
+simpleCalculator();
 
 // 12 📺 Televisor
 // Hacer un programa que empiece preguntando si se desea prender el televisor. Si elige que no, el programa debe terminar. 
@@ -277,3 +301,40 @@ console.log(showSeasonLength("SummEr"));
 // BAJAR VOLUMEN: disminuye en volumen en 5
 // MUTEAR: pone el volumen en 0
 // Una vez elegida la opción e ingresado el valor si corresponde, debe mostrar un mensaje con el canal y el nivel del volumen actual.
+
+function operateTelevision() {
+    let turnOn = prompt("Do you want to turn on the TV? Yes | No : ");
+    let currentChannel = 50;
+    let currentVolume = 10;
+    switch(turnOn) {
+        case "no":
+            console.log("Goodbye!");
+            break;
+        case "yes":
+            let operation = prompt(`What do you want to do? (Enter a number 1-6)\n
+                1) Change channel\n
+                2) Next channel\n
+                3) Previous channel\n
+                4) Increase volume\n
+                5) Decrease volume\n
+                6) Mute
+                `);
+            switch(operation) {
+                case 1:
+                    let newChannel = prompt(`You're on channel ${currentChannel}. Which channel do you want to go to (1-99)?: `);
+                    console.log(`Switching to channel ${newChannel}`);
+                case 2:
+                    console.log(`Switching to channel ${currentChannel + 1}`);
+                case 3:
+                    console.log(`Switching to channel ${currentChannel - 1}`);
+                case 4:
+                    console.log(`Increasing volume from ${currentVolume} to ${currentVolume + 5}`);
+                case 5:
+                    console.log(`Deccreasing volume from ${currentVolume} to ${currentVolume - 5}`);
+                case 6:
+                    console.log(`Volume set to 0`);
+            }
+
+
+    }
+}

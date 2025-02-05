@@ -31,6 +31,29 @@ console.log(fillPlaylist());
 // Luego, preguntar entre cuántos se desea buscar. 
 // Ir pidiendo ingresar uno por uno la cantidad de números que se eligió, y al finalizar mostrar el número mayor o menor de todos los ingresados según el elegido.
 
+let choice = prompt("Do you want to find the largest or smallest number? (largest/smallest)").toLowerCase();
+let numberNumbers = parseInt(prompt("How many numbers will you enter?"));
+let result;
+
+if (choice === "largest") {
+    result = -Infinity;
+} else if (choice === "smallest") {
+    result = Infinity;
+} else {
+    alert("Invalid option.");
+}
+
+for (let i = 0; i < numberNumbers; i++) {
+    let num = parseFloat(prompt(`Enter number ${i + 1}:`));
+    if (choice === "largest" && num > result) {
+        result = num;
+    } else if (choice === "smallest" && num < result) {
+        result = num;
+    }
+}
+
+alert(`The ${choice} number is: ${result}`);
+
 // 4 ❗️ Factorial
 // Crear un programa que pida ingresar un número, y muestre su factorial. 
 // Este se calcula multiplicando el mismo número y todos los números que le anteceden hasta el 1. 
@@ -161,6 +184,33 @@ drawTrainglePattern(10);
 // El programa debe permitir hasta 3 intentos, cuando el usuario y/o la contraseña sean incorrectos. 
 // Si se ingresa correctamente ambos antes de 3 intentos erróneos, debe mostrar un mensaje de bienvenida. 
 // Si se ingresan 3 intentos erróneos, debe mostrar un mensaje de error y terminar el programa. El usuario y la contraseña ya deben estar guardadas en variables.
+
+
+function loginAttempts() {
+    let correctUser = "user123";
+    let correctPassword = "password123";
+    let attempts = 0;
+    let maxAttempts = 3;
+    while (attempts < maxAttempts) {
+        let enteredUser = prompt("Enter username:");
+        let enteredPassword = prompt("Enter password:");
+
+        if (enteredUser === correctUser && enteredPassword === correctPassword) {
+            alert("Welcome!");
+            break;
+        } else {
+            attempts++;
+            if (attempts < maxAttempts) {
+                alert(`Incorrect credentials. You have ${maxAttempts - attempts} attempt(s) left.`);
+            }
+        }
+    }
+    if (attempts === maxAttempts) {
+        alert("Error: Too many incorrect attempts.");
+    }
+}
+
+loginAttempts();
 
 // 9 💲Cara o cruz
 // Crear un programa que permita escoger entre cara o cruz. 
