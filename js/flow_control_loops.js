@@ -57,6 +57,25 @@ console.log(calculateFactorial());
 // Vuelta 2: 145s
 // Vuelta 3: 166s
 // ⏱ Promedio: 144.45s
+function calculateLapTime() {
+    let numberLaps = Number(prompt("How many laps are you going to do?"));
+    let lapTimes = [];
+    let totalTime = 0;
+    for (i = 0; i < numberLaps; i++) {
+        let lapTime = Number(prompt(`Enter time for lap number ${i+1}: `));
+        lapTimes.push(lapTime);
+        totalTime += lapTime;
+        
+    }
+    for (i = 0; i < lapTimes.length; i++) {
+        console.log(`Lap ${i+1}: ${lapTimes[i]}s`)
+    }
+    let averageLapTime = totalTime / numberLaps;
+    console.log(`Average lap time: ${averageLapTime.toFixed(2)}s`)
+    
+}
+
+calculateLapTime();
 
 // 6 ✊🤚✌️ Piedra, papel, tijera II
 // Al ejercicio de Piedra, papel, tijera de condicionales, agregarle la posibilidad de jugar la cantidad de rondas que se deseen. 
@@ -186,3 +205,24 @@ headsOrTails();
 // El programa debe luego pedir al usuario que intente adivinar el número. 
 // Por cada intento, debe avisar si el número a adivinar es mayor o menor que el número ingresado. 
 // El programa debe terminar cuando se adivina el número.
+
+function guessNumber() {
+    let generatedNumber = Math.floor(Math.random() * 10) + 1;
+    let correct = false;
+    while (!correct) {
+        let userGuess = Number(prompt("Guess what number I'm thinking of (1-10): "))
+        if (userGuess > generatedNumber) {
+            console.log("Lower! Try again...");
+        }
+        else if (userGuess < generatedNumber) {
+            console.log("Higher! Try again...");
+        }
+        else if (userGuess === generatedNumber) {
+            console.log(`Well done! My number was indeed ${generatedNumber}`);
+            correct = true;
+        }
+        else {console.log("I didn't understand you. Guess a number between 1 and 10")};
+    }
+}
+
+guessNumber();
