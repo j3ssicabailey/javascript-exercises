@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Useful Array Functions</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Useful Array Functions in JavaScript</h1>
+        <a href="../index.html" class="back-to-home">Back to Home</a>
+    </header>
+    
+    <section>
+        <h2>Common Array Methods</h2>
+        
+        <h3>push() and pop()</h3>
+        <p><code>push()</code> adds an element to the end of an array, while <code>pop()</code> removes the last element.</p>
+        <pre><code>let fruits = ["Apple", "Banana"];
+fruits.push("Cherry"); // ["Apple", "Banana", "Cherry"]
+fruits.pop(); // ["Apple", "Banana"]</code></pre>
+        
+        <h3>shift() and unshift()</h3>
+        <p><code>shift()</code> removes the first element, while <code>unshift()</code> adds an element to the beginning.</p>
+        <pre><code>let numbers = [2, 3, 4];
+numbers.unshift(1); // [1, 2, 3, 4]
+numbers.shift(); // [2, 3, 4]</code></pre>
+        
+        <h3>map()</h3>
+        <p><code>map()</code> creates a new array by applying a function to each element.</p>
+        <pre><code>let numbers = [1, 2, 3];
+let squared = numbers.map(num => num * num);
+console.log(squared); // [1, 4, 9]</code></pre>
+        
+        <h3>filter()</h3>
+        <p><code>filter()</code> creates a new array with elements that pass a condition.</p>
+        <pre><code>let ages = [18, 21, 16, 25];
+let adults = ages.filter(age => age >= 18);
+console.log(adults); // [18, 21, 25]</code></pre>
+        
+        <h3>reduce()</h3>
+        <p><code>reduce()</code> processes an array to a single value.</p>
+        <pre><code>let numbers = [1, 2, 3, 4];
+let sum = numbers.reduce((total, num) => total + num, 0);
+console.log(sum); // 10</code></pre>
+    </section>
+    
+    <footer>
+        <p><a href="../index.html">Back to Index</a></p>
+        <p>© 2025 JavaScript Useful function for Arrays</p>
+    </footer>
+</body>
+</html>
