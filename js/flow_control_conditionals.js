@@ -303,13 +303,14 @@ simpleCalculator();
 // Una vez elegida la opción e ingresado el valor si corresponde, debe mostrar un mensaje con el canal y el nivel del volumen actual.
 
 function operateTelevision() {
-    let turnOn = prompt("Do you want to turn on the TV? Yes | No : ");
+    let turnOn = prompt("Do you want to turn on the TV? Yes | No : ").toLowerCase();
     let currentChannel = 50;
     let currentVolume = 10;
-    switch(turnOn) {
+
+    switch (turnOn) {
         case "no":
             console.log("Goodbye!");
-            break;
+            return;
         case "yes":
             let operation = prompt(`What do you want to do? (Enter a number 1-6)\n
                 1) Change channel\n
@@ -318,23 +319,46 @@ function operateTelevision() {
                 4) Increase volume\n
                 5) Decrease volume\n
                 6) Mute
-                `);
-            switch(operation) {
-                case 1:
-                    let newChannel = prompt(`You're on channel ${currentChannel}. Which channel do you want to go to (1-99)?: `);
-                    console.log(`Switching to channel ${newChannel}`);
-                case 2:
-                    console.log(`Switching to channel ${currentChannel + 1}`);
-                case 3:
-                    console.log(`Switching to channel ${currentChannel - 1}`);
-                case 4:
-                    console.log(`Increasing volume from ${currentVolume} to ${currentVolume + 5}`);
-                case 5:
-                    console.log(`Deccreasing volume from ${currentVolume} to ${currentVolume - 5}`);
-                case 6:
-                    console.log(`Volume set to 0`);
+            `);
+
+            switch (operation) {
+                case "1":
+                    let newChannel = parseInt(prompt(`You're on channel ${currentChannel}. Which channel do you want to go to (1-99)?: `));
+                    if (newChannel >= 1 && newChannel <= 99) {
+                        currentChannel = newChannel;
+                        console.log(`Switching to channel ${currentChannel}`);
+                    } else {
+                        console.log("Invalid channel. Please enter a number between 1 and 99.");
+                    }
+                    break;
+                case "2":
+                    currentChannel = currentChannel < 99 ? currentChannel + 1 : 99;
+                    console.log(`Switching to channel ${currentChannel}`);
+                    break;
+                case "3":
+                    currentChannel = currentChannel > 1 ? currentChannel - 1 : 1;
+                    console.log(`Switching to channel ${currentChannel}`);
+                    break;
+                case "4":
+                    currentVolume = Math.min(currentVolume + 5, 100);
+                    console.log(`Increasing volume to ${currentVolume}`);
+                    break;
+                case "5":
+                    currentVolume = Math.max(currentVolume - 5, 0);
+                    console.log(`Decreasing volume to ${currentVolume}`);
+                    break;
+                case "6":
+                    currentVolume = 0;
+                    console.log("Volume set to 0 (Muted)");
+                    break;
+                default:
+                    console.log("Invalid option. Enter a number 1-6.");
             }
-
-
+            break;
+        default:
+            console.log("Invalid response. Please enter Yes or No.");
     }
 }
+
+operateTelevision();
+

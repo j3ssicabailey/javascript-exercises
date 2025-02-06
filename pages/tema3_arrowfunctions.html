@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Functions in JavaScript</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+    <header>
+        <a href="/" class="back-to-home">Back to Home</a>
+        <h1>Arrow Functions in JavaScript</h1>
+    </header>
+
+    <section>
+        <p class="text-xl">
+            Arrow functions are a shorthand syntax for writing function expressions in JavaScript. Let's explore a few examples.
+        </p>
+        <h2>Key Differences in Arrow Functions</h2>
+        <ul>
+            <li><strong>No Access to `this`:</strong> Arrow functions do not have their own `this`. They inherit `this` from the surrounding context (lexical scoping). This can be useful for handling `this` in callbacks and event listeners.</li>
+            <li><strong>No Arguments Object:</strong> Arrow functions do not have an `arguments` object, unlike regular functions. If you need to access the arguments, you can use rest parameters.</li>
+            <li><strong>Not Affected by Hoisting:</strong> Arrow functions are not hoisted like regular functions. They must be defined before they are used, as they are expressions rather than declarations.</li>
+            <li><strong>Cannot Be Used as Constructors:</strong> Arrow functions cannot be used with the `new` keyword to create instances. They are not intended for use as constructor functions.</li>
+            <li><strong>Shorter Syntax:</strong> Arrow functions provide a more concise way to write functions, especially for one-liners and callbacks.</li>
+        </ul>
+
+        <h2>Example 1: Basic Arrow Function</h2>
+        <pre><code>
+const greet = name => `Hello, ${name}!`;
+console.log(greet('World'));
+        </code></pre>
+        <p>This example demonstrates a basic arrow function that takes a parameter and returns a greeting.</p>
+
+        <h2>Example 2: Arrow Function with Multiple Parameters</h2>
+        <pre><code>
+const add = (a, b) => a + b;
+console.log(add(2, 3));
+        </code></pre>
+        <p>This arrow function takes two parameters and returns their sum.</p>
+
+        <h2>Example 3: Implicit Return</h2>
+        <pre><code>
+const square = x => x * x;
+console.log(square(4));
+        </code></pre>
+        <p>Arrow functions can implicitly return values for single expressions, eliminating the need for the `return` keyword.</p>
+
+        <h2>Why Use Arrow Functions?</h2>
+        <ul>
+            <li>Simplifies function expressions.</li>
+            <li>Provides lexical scoping of the `this` keyword.</li>
+            <li>Improves readability in short functions.</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p><a href="../index.html">Back to Index</a></p>
+        <p>© 2025 JavaScript Arrow Functions</p>
+    </footer>
+
+</body>
+</html>
