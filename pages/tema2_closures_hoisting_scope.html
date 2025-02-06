@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Concepts: Closures, Hoisting, Scope</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="back-to-home">Home</a>
+        <h1>JavaScript Concepts: Closures, Hoisting, and Scope</h1>
+    </header>
+
+    <section>
+        <h2>Closures</h2>
+        <p>A closure is a function that remembers the scope in which it was created, even after it has been executed outside of that scope.</p>
+        <pre><code>function outerFunction(outerVariable) {
+    return function innerFunction(innerVariable) {
+        console.log(`Outer: ${outerVariable}, Inner: ${innerVariable}`);
+    };
+}
+
+const newFunction = outerFunction('Hello');
+newFunction('World'); // Output: Outer: Hello, Inner: World</code></pre>
+    </section>
+
+    <section>
+        <h2>Hoisting</h2>
+        <p>Hoisting allows functions and variables to be used before they are declared in the code.</p>
+        <pre><code>console.log(hoistedVar); // Output: undefined
+var hoistedVar = "This is hoisted";
+
+hoistedFunction(); // Output: Hoisted function runs!
+function hoistedFunction() {
+    console.log("Hoisted function runs!");
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Scope</h2>
+        <p>Scope defines where variables can be accessed. JavaScript has global, function, and block scope.</p>
+        <pre><code>var globalVar = "I'm global";
+function checkScope() {
+    let localVar = "I'm local";
+    console.log(globalVar); // Accessible
+    console.log(localVar);  // Accessible
+}
+console.log(globalVar); // Accessible
+// console.log(localVar); // Error: localVar is not defined</code></pre>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Javascript Clousures Hoisting y Scope </p>
+    </footer>
+</body>
+</html>
