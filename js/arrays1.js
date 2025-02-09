@@ -1,68 +1,22 @@
-const alumnos = [
-{
-    id: 1,
-    nombre: 'Zamora',
-    edad: 15,
-    master: 'FullStack'
-},
-{
-    id: 2,
-    nombre: 'Jose Luís',
-    edad: 22,
-    master: 'BlockChain'
-},
-{
-    id: 3,
-    nombre: 'Lucía',
-    edad: 19,
-    master: 'IA'
-},
-{
-    id: 4,
-    nombre: 'Felipe',
-    edad: 49,
-    master: 'FullStack'
-},
-{
-    id: 5,
-    nombre: 'María',
-    edad: 17,
-    master: 'IA'
-},
-{
-    id: 6,
-    nombre: 'Cecilia',
-    edad: 16,
-    master: 'FullStack'
-},
-{
-    id: 7,
-    nombre: 'Cecilia',
-    edad: 16,
-    master: 'BlockChain'
-}
-];
-
-const datosAleatorios = [
-"Paisa",
-66,
-"Qué tal estás",
-{},
-{ name: 'Bienve' },
-[1, 2, 3],
-['Hola que tal'],
-true
-]
 
 
 /* Ejercicio 1
 
 Dado un array de números, crear una función vAbsoluto que reciba un array y que devuelve un array con los valores absolutos de los números del array que se pasa como parámetro
-
 Pista: usar Math.abs
 
 */
+let arrayNumeros = [2.5, 7.1, -4, -9.2, 29.4, 1.4, -12.3];
 
+function vAbsoluto(array) {
+    let arrayAbsoluto = [];
+    for (let num of array) {
+        arrayAbsoluto.push(Math.abs(num));
+    }
+    return arrayAbsoluto;
+}
+
+console.log(vAbsoluto(arrayNumeros));
 
 /* Ejercicio 2
 
@@ -70,8 +24,31 @@ Dado un array de datos aleatorios, crear una función llamada porTipos que devue
 
 Pista: usar typeof para determinar el tipo
 
-
 */
+
+const datosAleatorios = [
+    "Paisa",
+    66,
+    "Qué tal estás",
+    {},
+    { name: 'Bienve' },
+    [1, 2, 3],
+    ['Hola que tal'],
+    true
+]
+
+function porTipos (arrayDatos) {
+    return {
+        string: arrayDatos.filter(e => typeof e === "string"),
+        number: arrayDatos.filter(e => typeof e === "number"),
+        boolean: arrayDatos.filter(e => typeof e === "boolean"),
+        object: arrayDatos.filter(e => typeof e === "object"),
+        undefined: arrayDatos.filter(e => typeof e === "undefined"),
+    }
+}
+
+console.log(porTipos(datosAleatorios));
+
 
 
 /* Ejercicio 3
@@ -81,7 +58,9 @@ Dado el array de alumnos, crear una función getFullStackStudents a la que se lo
 Pista: usar filter
 
 */
+let getFullStackStudents = alumnos.filter(alumno => alumno.master === "FullStack");
 
+console.log(getFullStackStudents);
 
 /* Ejercicio 4
 
@@ -90,6 +69,30 @@ Dado el array de alumnos, crear una función llamada nStudentFullStack que nos d
 Pista: usar reduce o filter (más eficiente reduce)
 
 */
+// Fullstack only
+let nStudentFullStack = alumnos.reduce((numStudents, currentValue) => {
+    if (currentValue.master === "FullStack") {
+        numStudents += 1;
+    }
+    return numStudents;
+}, 0);
+
+console.log(nStudentFullStack);
+
+// Function for all courses
+function nStudentCourse(course) {
+    return `There are ${alumnos.reduce((numStudents, currentValue) => {
+        if (currentValue.master === course) {
+            numStudents += 1;
+        }
+        return numStudents;  
+    }, 0)} students in the ${course} course.`; 
+}
+
+console.log(nStudentCourse("IA"));
+console.log(nStudentCourse("BlockChain"));
+
+
 
 /* Ejercicio 5
 
@@ -97,6 +100,23 @@ Dado el array de alumnos, crear una función llamada getAdultStudents que reciba
 
 */
 
+// returns new array
+function getAdultStudents(array) {
+    return array.filter(student => student.edad >= 18);
+}
+
+console.log(getAdultStudents(alumnos));
+
+
+// Added info to array
+const addAdultStudents = alumnos.map((alumno) => {
+    return {
+        ... alumno,
+        isAdult: alumno.edad >= 18
+    }
+});
+
+console.log(addAdultStudents);
 
 /* Ejercicio 6
 
@@ -105,6 +125,61 @@ Dado el array de alumnos, crear una función llamada mayor que reciba el array c
 Pista: usa reduce o for
 
 */
+const alumnos = [
+    {
+        id: 1,
+        nombre: 'Zamora',
+        edad: 15,
+        master: 'FullStack'
+    },
+    {
+        id: 2,
+        nombre: 'Jose Luís',
+        edad: 22,
+        master: 'BlockChain'
+    },
+    {
+        id: 3,
+        nombre: 'Lucía',
+        edad: 19,
+        master: 'IA'
+    },
+    {
+        id: 4,
+        nombre: 'Felipe',
+        edad: 49,
+        master: 'FullStack'
+    },
+    {
+        id: 5,
+        nombre: 'María',
+        edad: 17,
+        master: 'IA'
+    },
+    {
+        id: 6,
+        nombre: 'Cecilia',
+        edad: 16,
+        master: 'FullStack'
+    },
+    {
+        id: 7,
+        nombre: 'Cecilia',
+        edad: 16,
+        master: 'BlockChain'
+    }
+];
+
+const mayor = alumnos.reduce((acc, curValue) => {
+    if (acc.edad > curValue.edad) {
+        return acc; 
+    } else {
+        return curValue;  
+    };
+})
+
+console.log(mayor);
+
 
 /* Ejercicio 7
 
