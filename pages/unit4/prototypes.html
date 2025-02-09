@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototypes in JavaScript</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>JavaScript Prototypes</h1>
+        <a href="../../index.html" class="back-to-home">Home</a>
+    </header>
+
+    <section id="prototypes">
+        <h2>Understanding Prototypes in JavaScript</h2>
+        <p>In JavaScript, every object has a prototype, which is another object from which it inherits properties and methods. This forms the prototype chain.</p>
+
+        <h3>Prototype Chain</h3>
+        <p>When accessing a property on an object, JavaScript first looks at the object itself. If the property is not found, it checks the object's prototype, continuing up the chain until it reaches <code>null</code>.</p>
+        <pre><code>function Person(name) {
+    this.name = name;
+}
+Person.prototype.greet = function() {
+    console.log("Hello, my name is " + this.name);
+};
+const john = new Person("John");
+john.greet(); // "Hello, my name is John"</code></pre>
+
+        <h3>Modifying Prototypes</h3>
+        <p>Prototypes can be extended, but modifying built-in prototypes should be done with caution.</p>
+        <pre><code>Array.prototype.last = function() {
+    return this[this.length - 1];
+};
+console.log([1, 2, 3].last()); // 3</code></pre>
+    </section>
+
+    <footer>
+        <p><a href="../index.html">Back to Index</a></p>
+        <p>© 2025 JavaScript Prototypes</p>
+    </footer>
+</body>
+</html>
