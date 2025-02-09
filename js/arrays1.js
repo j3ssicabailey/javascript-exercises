@@ -1,3 +1,64 @@
+// Variables that the funcions will interact with:
+//1. Array of pos and neg numbers
+const arrayNumeros = [2.5, 7.1, -4, -9.2, 29.4, 1.4, -12.3];
+
+//2. Array of random data of varying types
+const datosAleatorios = [
+    "Paisa",
+    66,
+    "Qué tal estás",
+    {},
+    { name: 'Bienve' },
+    [1, 2, 3],
+    ['Hola que tal'],
+    true
+]
+
+//3. Array of objects "alumnos"
+const alumnos = [
+    {
+        id: 1,
+        nombre: 'Zamora',
+        edad: 15,
+        master: 'FullStack'
+    },
+    {
+        id: 2,
+        nombre: 'Jose Luís',
+        edad: 22,
+        master: 'BlockChain'
+    },
+    {
+        id: 3,
+        nombre: 'Lucía',
+        edad: 19,
+        master: 'IA'
+    },
+    {
+        id: 4,
+        nombre: 'Felipe',
+        edad: 49,
+        master: 'FullStack'
+    },
+    {
+        id: 5,
+        nombre: 'María',
+        edad: 17,
+        master: 'IA'
+    },
+    {
+        id: 6,
+        nombre: 'Cecilia',
+        edad: 16,
+        master: 'FullStack'
+    },
+    {
+        id: 7,
+        nombre: 'Cecilia',
+        edad: 16,
+        master: 'BlockChain'
+    }
+];
 
 
 /* Ejercicio 1
@@ -6,7 +67,6 @@ Dado un array de números, crear una función vAbsoluto que reciba un array y qu
 Pista: usar Math.abs
 
 */
-let arrayNumeros = [2.5, 7.1, -4, -9.2, 29.4, 1.4, -12.3];
 
 function vAbsoluto(array) {
     let arrayAbsoluto = [];
@@ -26,16 +86,6 @@ Pista: usar typeof para determinar el tipo
 
 */
 
-const datosAleatorios = [
-    "Paisa",
-    66,
-    "Qué tal estás",
-    {},
-    { name: 'Bienve' },
-    [1, 2, 3],
-    ['Hola que tal'],
-    true
-]
 
 function porTipos (arrayDatos) {
     return {
@@ -125,50 +175,7 @@ Dado el array de alumnos, crear una función llamada mayor que reciba el array c
 Pista: usa reduce o for
 
 */
-const alumnos = [
-    {
-        id: 1,
-        nombre: 'Zamora',
-        edad: 15,
-        master: 'FullStack'
-    },
-    {
-        id: 2,
-        nombre: 'Jose Luís',
-        edad: 22,
-        master: 'BlockChain'
-    },
-    {
-        id: 3,
-        nombre: 'Lucía',
-        edad: 19,
-        master: 'IA'
-    },
-    {
-        id: 4,
-        nombre: 'Felipe',
-        edad: 49,
-        master: 'FullStack'
-    },
-    {
-        id: 5,
-        nombre: 'María',
-        edad: 17,
-        master: 'IA'
-    },
-    {
-        id: 6,
-        nombre: 'Cecilia',
-        edad: 16,
-        master: 'FullStack'
-    },
-    {
-        id: 7,
-        nombre: 'Cecilia',
-        edad: 16,
-        master: 'BlockChain'
-    }
-];
+
 
 const mayor = alumnos.reduce((acc, curValue) => {
     if (acc.edad > curValue.edad) {
@@ -185,8 +192,32 @@ console.log(mayor);
 
 Haz el ejercicio 2 usando "reduce"
 
+*/
+
+function porTiposReduce (arrayDatos) {
+    return arrayDatos.reduce((acc, elemento) => {
+        let type = typeof elemento;
+        acc[type] = acc[type] ? acc[type]: [];
+        acc[type].push(elemento);
+        return acc;
+    }, {}); 
+}
+
+console.log(porTiposReduce(datosAleatorios));
+
 /* Ejercicio 8
 
 Dado el array de alumnos, crear una función llamada agruparPor que reciba dos parámetros, primero el array y luego un string con la propiedad por la que queremos agrupar de las posibles de los alumnos. La función devolverá un objeto con una propiedad por cada uno de los valores posibles de la propiedad pasada como parámetro. Te lo explico con un ejemplo mejor.
 
 */
+
+function groupBy (arr, key) {
+    return arr.reduce((acc, student) => {
+        let group = student[key];
+        acc[group] = acc[group] ? acc[group]: [];
+        acc[group].push(student);
+        return acc;
+    }, {});
+}
+
+console.log(groupBy(alumnos, "master"));
