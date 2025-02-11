@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Classes</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>JavaScript Classes</h1>
+        <a href="../../index.html" class="back-to-home">Home</a>
+    </header>
+
+    <section id="classes">
+        <h2>Understanding Classes in JavaScript</h2>
+        <p>JavaScript introduced classes in ES6 to make working with objects and prototypes easier. A class is essentially a blueprint for creating objects.</p>
+
+        <h3>Defining a Class</h3>
+        <p>We define a class using the <code>class</code> keyword. Inside the class, we can define a constructor method, which initializes object properties.</p>
+        <pre><code>class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    introduce() {
+        console.log(`Hi, I'm ${this.name} and I'm ${this.age} years old.`);
+    }
+}
+
+const alice = new Person("Alice", 25);
+alice.introduce(); // "Hi, I'm Alice and I'm 25 years old."
+</code></pre>
+
+        <h3>Class Inheritance</h3>
+        <p>Classes can inherit from other classes using the <code>extends</code> keyword. This allows us to create specialized versions of a base class.</p>
+        <pre><code>class Student extends Person {
+    constructor(name, age, subject) {
+        super(name, age);
+        this.subject = subject;
+    }
+
+    study() {
+        console.log(`${this.name} is studying ${this.subject}.`);
+    }
+}
+
+const bob = new Student("Bob", 22, "JavaScript");
+bob.introduce(); // "Hi, I'm Bob and I'm 22 years old."
+bob.study(); // "Bob is studying JavaScript."
+</code></pre>
+
+        <h3>Getters and Setters</h3>
+        <p>We can use <code>get</code> and <code>set</code> methods to control access to properties.</p>
+        <pre><code>class Car {
+    constructor(brand, speed) {
+        this.brand = brand;
+        this._speed = speed;
+    }
+
+    get speed() {
+        return `${this._speed} km/h`;
+    }
+
+    set speed(value) {
+        if (value > 0) {
+            this._speed = value;
+        } else {
+            console.log("Speed must be positive.");
+        }
+    }
+}
+
+const myCar = new Car("Toyota", 120);
+console.log(myCar.speed); // "120 km/h"
+myCar.speed = 150;
+console.log(myCar.speed); // "150 km/h"
+</code></pre>
+    </section>
+
+    <footer>
+        <p><a href="../index.html">Back to Index</a></p>
+        <p>© 2025 JavaScript Classes</p>
+    </footer>
+</body>
+</html>
