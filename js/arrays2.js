@@ -13,18 +13,19 @@ function duplicateArray(arr) {
     return duplicatedArray;
 }
 
+function duplicateArray(arr) {
+    return arr.flatMap(n => [n, n]);
+}
+
+console.log(duplicateArray(arrayNumbers));
+
 /* Ejercicio 2
 
 Calcula la suma de todos los elementos en el array creado en el ejercicio 1 e imprímelo.
 
 */
 function sumArrayNumbers(arr) {
-    let sum = 0;
-    for (let number of arr) {
-        sum += number;
-    }
-    return sum;
-}
+    return arr.reduce((sum, n) => sum + n, 0);};
 
 let duplicatedNumbers = duplicateArray(arrayNumbers);
 let sumNumbers = sumArrayNumbers(duplicatedNumbers);
@@ -36,13 +37,7 @@ Crea un nuevo array que contenga solo los números pares del array original.
 
 */
 function getEvenNumbers(arr) {
-    let arrayEven = [];
-    for (let num of arr) {
-        if (num % 2 === 0) {
-            arrayEven.push(num);
-        }
-    }
-    return arrayEven;
+    return arr.filter(n => n % 2 === 0)
 }
 
 console.log(getEvenNumbers(arrayNumbers));
@@ -53,11 +48,7 @@ Pide al usuario que ingrese un número y verifica si está presente en el array.
 */
 function isInArray(arr) {
     let numUser = Number(prompt("Enter a number: "));
-    if (arr.includes(numUser)) {
-        return `${numUser} is in the array`;
-    } else { 
-        return `${numUser} isn't in the array`;
-    }
+    return arr.includes(numUser) ? `${numUser} is in the array`: `${numUser} isn't in the array`; ;
 }
 
 isInArray(arrayNumbers);
@@ -65,7 +56,7 @@ isInArray(arrayNumbers);
 
 //6-Ordena el array de números en orden descendente y imprímelo.
 function descendingOrder(arr) {
-    return arr.sort(function(b,a){return a-b});
+    return [...arr].sort((a, b) => b - a);
 }
 
 console.log(descendingOrder(arrayNumbers));
@@ -78,9 +69,7 @@ const array1 = [2, 3, 5, 9, 12, 15];
 const array2 = [4, 6, 9, 12, 18, 20];
 
 function newArray(arr1, arr2) {
-    let joinedArr = arr1.concat(arr2);
-    let newArr = [...new Set(joinedArr.filter(num => num % 3 === 0 && num % 5 !== 0))];
-    return newArr;
+    return [...new Set([...arr1, ...arr2].filter(num => num % 3 === 0 && num % 5 !== 0))];
 }
 
 console.log(newArray(array1, array2)); 
@@ -104,12 +93,9 @@ const libros = [
 ];
 
 function getBooks2000(arr) {
-    let books = arr.filter((book) => {
-        return book.año >= 2000;
-    });
-    //crear array con esos titulos en mayusuculas
-    books.forEach(book => {book.titulo = book.titulo.toUpperCase();}); 
-    return books;
+    return arr
+        .filter(book => book.año >= 2000)
+        .map(book => book.titulo.toUpperCase());
 }
 
 console.log(getBooks2000(libros));
