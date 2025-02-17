@@ -274,8 +274,9 @@ class ToDoList {
     return `Note number ${id} (${this.listNotes[id]}) deleted.`
   }
   fullList() {
-  console.log(`${this.title}\n---------------------`);
-  this.listNotes.forEach((note, i) => console.log(`${i + 1}. ${note}`));
+  this.listNotes.reduce((acc, note, index) => {
+    `${acc} \n ${index+1}. ${note}`
+  }, `${this.title} \n-------------------------\n`);
   }
 }
 
@@ -383,9 +384,99 @@ class mobilePhone {
     - cuando se agrega `gasto` o `ganancia` al array operaciones, hay que agregarle a dicha objeto la propiedad `tipo` con el valor `"GASTO"` o `"GANANCIA"` según corresponda, para poder identificarlos en las siguientes operaciones
     - cuando se devuelve un array con gastos o ganancias, hay que borrar de los objetos que se devuelven la propiedad `tipo`
 <br> */
+class Movement {
+  description;
+  quantity;
+  date;
+  category;
 
+  constructor(description, quantity, date, category){
+    this.description = description;
+    this.quantity = quantity;
+    this.date = date;
+    this.category = category;
+  }
+}
+
+
+class VirtualWallet {
+  #amount;
+  operations;
+  
+  constructor(startingAmount = 0){
+    this.#amount = startingAmount;
+    this.operations = [];
+  }
+  addMovement(movement){
+    this.operations.push(movement);
+    if(movement.category === "EXPENSE") {
+      this.#amount -= movement.quantity;
+    } else {
+      this.#amount += movement.quantity;
+    }
+  } 
+  getMonthlyExpenses(month) {
+    return this.operations.filter(operation => operation.date.getMonth() === month &&
+    operation.category === "EXPENSE");
+  }
+  getMonthlyIncome(month) {
+    return this.operations.filter(operation => operation.date.getMonth() === month &&
+    operation.category === "INCOME");
+  }
+  getExpensesType(description){
+    return this.operations.filter(movement => movement.category === "EXPENSE" &&
+    movement.description === description);
+  }
+  getIncomeType(description){
+    return this.operations.filter(movement => movement.category === "INCOME" &&
+    movement.description === description);
+  }
+  calculateMonthlyTotal(month){
+    return this.operations
+    .filter(movement => movement.date.getMonth() === month)
+    .reduce(
+      (total, movement) => {
+        if(movement.category === "EXPENSE") {
+          total -= movement.quantity
+        } else {
+          total += movement.quantity
+        }
+        return total;
+      } , 0
+    )
+  }
+}
+
+let wallet1 = new VirtualWallet();
+let m1 = new Movement(
+  "Bills",
+  100,
+  new Date(2025, 0, 1, 0, 0, 0, 0),
+  "EXPENSE"
+);
+let m2 = new Movement(
+  "Payslip",
+  2500,
+  new Date(2025, 0, 5, 0, 0, 0, 0),
+  "INCOME"
+);
+let m3 = new Movement(
+  "Bills",
+  25,
+  new Date(2025, 0, 8, 0, 0, 0, 0),
+  "EXPENSE"
+);
+
+wallet1.addMovement(m1);
+wallet1.addMovement(m2);
+wallet1.addMovement(m3);
+
+wallet1.getMonthlyExpenses(0);
+wallet1.getExpensesType("Bills");
+wallet1.getIncomeType("Payslip");
+
+console.log(wallet1.calculateMonthlyTotal(0));
 /* ## Carrito con Producto
-
   ### Producto
   - **Propiedades**
     - id (string)
@@ -402,8 +493,50 @@ class mobilePhone {
   - **Observaciones**
     - la cantidad nunca puede ser 0
     - el precio no puede ser menor a 0
+    */
+class Product {
+  static idCounter = 1;
+  
+  constructor(name, price, quantity, hasTax) {
+    if (!name || price < 0 || quantity <= 0) {
+      throw new Error("Invalid product details.");
+    }
+    this.id = `P${Product.idCounter++}`;
+    this.name = name;
+    this.price = price;
+    this.quantity = quantity;
+    this.hasTax = hasTax;
+  }
 
-  ### Carrito
+  getId() {
+    return this.id;
+  }
+
+  getName() {
+    return this.name;
+  }
+
+  getPrice() {
+    return this.price;
+  }
+
+  getQuantity() {
+    return this.quantity;
+  }
+
+  hasTaxApplied() {
+    return this.hasTax;
+  }
+
+  setQuantity(newQuantity) {
+    if (newQuantity <= 0) {
+      throw new Error("Quantity must be greater than 0.");
+    }
+    this.quantity = newQuantity;
+  }
+}
+
+  /*### Carrito
   - **Propiedades**
     - productos (array de `Producto`), inicializa vacío
   - **Métodos**
@@ -421,6 +554,60 @@ class mobilePhone {
   - **Observaciones**
     - el impuesto es del 10% sobre el precio del producto
     <br> */
+    
+class Cart {
+  constructor() {
+    this.products = [];
+  }
+
+  addProduct(product) {
+    if (!(product instanceof Product)) {
+      throw new Error("Invalid product.");
+    }
+    this.products.push(product);
+  }
+
+  updateProductQuantity(id, quantity) {
+    const product = this.products.find((p) => p.getId() === id);
+    if (!product) {
+      throw new Error("Product not found.");
+    }
+    product.setQuantity(quantity);
+  }
+
+  removeProduct(id) {
+    this.products = this.products.filter((p) => p.getId() !== id);
+  }
+
+  calculateTotal() {
+    return this.products.reduce((total, product) => {
+      const tax = product.hasTaxApplied() ? product.getPrice() * 0.1 : 0;
+      return total + (product.getPrice() + tax) * product.getQuantity();
+    }, 0);
+  }
+
+  calculateTotalTax() {
+    return this.products.reduce((totalTax, product) => {
+      return totalTax + (product.hasTaxApplied() ? product.getPrice() * 0.1 * product.getQuantity() : 0);
+    }, 0);
+  }
+
+  getTotalQuantity() {
+    return this.products.reduce((total, product) => total + product.getQuantity(), 0);
+  }
+
+  toString() {
+    let productList = this.products.map(product => 
+      `${product.getName()} - $${product.getPrice()} x ${product.getQuantity()}`
+    ).join("\n");
+
+    const subtotal = this.products.reduce((sum, product) => sum + product.getPrice() * product.getQuantity(), 0);
+    const totalTax = this.calculateTotalTax();
+    const total = this.calculateTotal();
+
+    return `Cart Summary:\n${productList}\nSubtotal: $${subtotal.toFixed(2)}\nTotal Tax: $${totalTax.toFixed(2)}\nFinal Total: $${total.toFixed(2)}`;
+  }
+}
 
 /* ## Agenda con Tareas
 
