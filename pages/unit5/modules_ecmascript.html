@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Modules</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>JavaScript Modules</h1>
+        <a href="../../index.html" class="back-to-home">Home</a>
+    </header>
+
+    <section id="modules">
+        <h2>Understanding Modules in JavaScript</h2>
+        <p>ES6 introduced modules to enable better code organization and reuse. Modules allow you to split code into separate files and import only what is needed.</p>
+
+        <h3>Exporting Modules</h3>
+        <p>Use the <code>export</code> keyword to make functions, variables, or classes available in other files.</p>
+        <pre><code>// math.js
+export function add(a, b) {
+    return a + b;
+}
+
+export const PI = 3.1416;
+</code></pre>
+
+        <h3>Importing Modules</h3>
+        <p>Use <code>import</code> to bring in exported values.</p>
+        <pre><code>// main.js
+import { add, PI } from "./math.js";
+
+console.log(add(5, 3)); // 8
+console.log(PI); // 3.1416</code></pre>
+
+        <h3>Default Exports</h3>
+        <p>A module can have a single default export, imported without curly braces.</p>
+        <pre><code>// greet.js
+export default function greet(name) {
+    return `Hello, ${name}!`;
+}
+</code></pre>
+        <pre><code>// main.js
+import greet from "./greet.js";
+
+console.log(greet("Alice")); // Hello, Alice!</code></pre>
+
+        <h3>Renaming Imports and Exports</h3>
+        <p>Aliases can be assigned to avoid naming conflicts.</p>
+        <pre><code>// utils.js
+export { add as sum } from "./math.js";
+</code></pre>
+        <pre><code>// main.js
+import { sum } from "./utils.js";
+
+console.log(sum(4, 2)); // 6</code></pre>
+    </section>
+
+    <footer>
+        <p><a href="../index.html">Back to Index</a></p>
+        <p>© 2025 JavaScript Modules</p>
+    </footer>
+</body>
+</html>
