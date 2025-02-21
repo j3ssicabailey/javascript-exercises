@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectors in JavaScript</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+
+    <header>
+        <a href="../../index.html" class="back-to-home">Home</a>
+        <h1>Selectors in JavaScript</h1>
+    </header>
+
+    <section>
+        <p class="text-xl">
+            Selecting elements in the DOM is the first step to manipulating them. JavaScript provides multiple methods to achieve this.
+        </p>
+        <h2>Common Selectors</h2>
+        <ul>
+            <li><strong>getElementById:</strong> Selects an element by its ID.</li>
+            <li><strong>getElementsByClassName:</strong> Selects elements by class name.</li>
+            <li><strong>getElementsByTagName:</strong> Selects elements by tag name.</li>
+            <li><strong>getElementByName:</strong> Selects elements by the name attribute.</li>
+            <li><strong>querySelector:</strong> Selects the first element that matches a CSS selector.</li>
+            <li><strong>querySelectorAll:</strong> Selects all elements that match a CSS selector.</li>
+        </ul>
+
+        <h2>HTMLCollection vs NodeList</h2>
+        <p>Understanding the difference between these two data structures is important for working efficiently with the DOM.</p>
+        <ul>
+            <li><strong>HTMLCollection:</strong> A live collection of elements, meaning changes in the DOM update the collection automatically.</li>
+            <li><strong>NodeList:</strong> A static or live collection of nodes depending on how it is obtained. querySelectorAll returns a static NodeList.</li>
+        </ul>
+
+        <h2>Scoped Searches</h2>
+        <p>Instead of searching the entire document, you can narrow the search within a specific element.</p>
+        <pre><code>
+const container = document.getElementById("container");
+const items = container.getElementsByClassName("item");
+        </code></pre>
+        <p>Here, only elements with class "item" inside the element with ID "container" will be selected.</p>
+
+        <h2>Example: Selecting an Element by ID</h2>
+        <pre><code>
+document.getElementById("example").style.color = "red";
+        </code></pre>
+        <p>This example selects an element with the ID "example" and changes its text color to red.</p>
+    </section>
+
+    <footer>
+        <p><a href="../index.html">Back to Index</a></p>
+        <p>© 2025 JavaScript Selectors</p>
+    </footer>
+
+</body>
+</html>

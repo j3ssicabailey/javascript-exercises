@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating Elements in the DOM</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+
+    <header>
+        <a href="../../index.html" class="back-to-home">Home</a>
+        <h1>Intro: Creating Elements in the DOM</h1>
+    </header>
+
+    <section>
+        <p class="text-xl">
+            JavaScript provides multiple methods to dynamically create and manipulate elements in the DOM.
+        </p>
+
+        <h2>Common Methods</h2>
+        <ul>
+            <li><strong>createElement:</strong> Creates a new HTML element.</li>
+            <li><strong>createTextNode:</strong> Creates a text node (useful for inserting raw text).</li>
+            <li><strong>createComment:</strong> Creates a comment node.</li>
+            <li><strong>appendChild:</strong> Appends a node as the last child of a parent.</li>
+            <li><strong>insertBefore:</strong> Inserts a node before a specified child.</li>
+            <li><strong>removeChild:</strong> Removes a child node from a parent.</li>
+            <li><strong>replaceChild:</strong> Replaces an existing child node with a new node.</li>
+            <li><strong>cloneNode:</strong> Duplicates a node (deep cloning copies child nodes as well).</li>
+            <li><strong>createDocumentFragment:</strong> Creates a lightweight document fragment for efficient DOM updates.</li>
+        </ul>
+
+        <h2>Node Properties</h2>
+        <ul>
+            <li><strong>isConnected:</strong> Checks if a node is in the document.</li>
+            <li><strong>textContent:</strong> Gets or sets the text content of an element (ignores HTML structure).</li>
+            <li><strong>innerHTML:</strong> Gets or sets the HTML content of an element (parses HTML).</li>
+        </ul>
+
+        <h2>Example: Creating and Appending an Element</h2>
+        <pre><code>
+const newDiv = document.createElement("div");
+newDiv.textContent = "Hello, world!";
+document.body.appendChild(newDiv);
+        </code></pre>
+
+        <h2>Example: Using createDocumentFragment</h2>
+        <pre><code>
+const fragment = document.createDocumentFragment();
+for (let i = 0; i < 3; i++) {
+    let p = document.createElement("p");
+    p.textContent = `Paragraph ${i + 1}`;
+    fragment.appendChild(p);
+}
+document.body.appendChild(fragment);
+        </code></pre>
+    </section>
+
+    <footer>
+        <p><a href="../index.html">Back to Index</a></p>
+        <p>© 2025 JavaScript DOM Manipulation</p>
+    </footer>
+
+</body>
+</html>
+
