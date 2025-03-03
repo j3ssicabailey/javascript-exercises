@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM APIs and Navigation</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="back-to-home">Home</a>
+        <h1>DOM APIs and Navigation</h1>
+    </header>
+
+    <section>
+        <h2>Node API</h2>
+        <p>The Node API allows interaction with all types of nodes in the DOM, including elements, text, comments, and more. Some key methods include:</p>
+        <ul>
+            <li><code>node.appendChild()</code> - Adds a node as the last child of a parent.</li>
+            <li><code>node.removeChild()</code> - Removes a child node.</li>
+            <li><code>node.replaceChild(newNode, oldNode)</code> - Replaces an existing child node.</li>
+            <li><code>node.cloneNode(deep)</code> - Clones a node. If <code>deep</code> is true, it clones all children as well.</li>
+        </ul>
+
+        <h2>Element API</h2>
+        <p>The Element API extends the Node API and includes methods specific to element nodes. Some commonly used methods:</p>
+        <ul>
+            <li><code>element.setAttribute(name, value)</code> - Sets an attribute on an element.</li>
+            <li><code>element.getAttribute(name)</code> - Retrieves the value of an attribute.</li>
+            <li><code>element.removeAttribute(name)</code> - Removes an attribute.</li>
+            <li><code>element.classList.add()</code>, <code>remove()</code>, <code>toggle()</code> - Modifies class attributes efficiently.</li>
+        </ul>
+
+        <h2>Adjacent Insertion API</h2>
+        <p>This API provides methods to insert HTML at specific positions relative to an element:</p>
+        <ul>
+            <li><code>element.insertAdjacentElement(position, element)</code></li>
+            <li><code>element.insertAdjacentHTML(position, htmlString)</code></li>
+            <li><code>element.insertAdjacentText(position, text)</code></li>
+        </ul>
+        <p>The position can be:</p>
+        <ul>
+            <li><code>beforebegin</code> - Before the element itself.</li>
+            <li><code>afterbegin</code> - Inside the element, before its first child.</li>
+            <li><code>beforeend</code> - Inside the element, after its last child.</li>
+            <li><code>afterend</code> - After the element itself.</li>
+        </ul>
+        <pre><code>
+// Example:
+const div = document.querySelector(".container");
+div.insertAdjacentHTML("beforeend", "<p>New paragraph</p>");
+        </code></pre>
+
+        <h2>Element vs. Node Navigation</h2>
+        <p>There are two ways to navigate the DOM: by element and by node.</p>
+
+        <h3>By Element</h3>
+        <ul>
+            <li><code>element.children</code> - Returns only element nodes.</li>
+            <li><code>element.firstElementChild</code> - First child element.</li>
+            <li><code>element.lastElementChild</code> - Last child element.</li>
+            <li><code>element.nextElementSibling</code> - Next sibling element.</li>
+            <li><code>element.previousElementSibling</code> - Previous sibling element.</li>
+        </ul>
+        
+        <h3>By Node</h3>
+        <ul>
+            <li><code>node.childNodes</code> - Returns all nodes, including text and comments.</li>
+            <li><code>node.firstChild</code> - First child node (could be text).</li>
+            <li><code>node.lastChild</code> - Last child node.</li>
+            <li><code>node.nextSibling</code> - Next node (could be text or comment).</li>
+            <li><code>node.previousSibling</code> - Previous node.</li>
+        </ul>
+    </section>
+    <aside>
+        <h2>Exercises with DOM APIS and navigation in JS</h2>
+        <a href="exercises_dom_apis.html">Go to exercises</a>
+    </aside>
+
+    <footer>
+        <p><a href="../index.html">Back to Index</a></p>
+        <p>© 2025 DOM APIs</p>
+    </footer>
+</body>
+</html>
