@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>classList and dataset in JavaScript</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+    
+    <header>
+        <a href="../../index.html" class="back-to-home">Home</a>
+        <h1>classList and dataset in JavaScript</h1>
+    </header>
+    
+    <section>
+        <h2>Managing CSS Classes with classList</h2>
+        <p>The <code>classList</code> property provides an easy way to manage the class attribute of an element.</p>
+        
+        <h3>Common Methods</h3>
+        <ul>
+            <li><code>element.classList.add("new-class")</code> - Adds a class.</li>
+            <li><code>element.classList.remove("old-class")</code> - Removes a class.</li>
+            <li><code>element.classList.toggle("toggle-class")</code> - Toggles a class on/off.</li>
+            <li><code>element.classList.contains("class-name")</code> - Checks if a class exists.</li>
+            <li><code>element.classList.replace("old", "new")</code> - Replaces one class with another.</li>
+        </ul>
+        
+        <h3>Example: Toggling a Class</h3>
+        <pre><code>
+const element = document.getElementById("myDiv");
+element.classList.toggle("highlight");
+        </code></pre>
+        <p>This will add <code>highlight</code> if it's not there, or remove it if it is.</p>
+    </section>
+    
+    <section>
+        <h2>Working with dataset</h2>
+        <p>The <code>dataset</code> property allows access to <code>data-*</code> attributes of an element.</p>
+        
+        <h3>Accessing Data Attributes</h3>
+        <ul>
+            <li><code>element.dataset.key</code> - Retrieves the value of <code>data-key</code>.</li>
+            <li><code>element.dataset.key = "new value"</code> - Modifies a dataset attribute.</li>
+            <li><code>delete element.dataset.key</code> - Removes a dataset attribute.</li>
+        </ul>
+        
+        <h3>Example: Using dataset</h3>
+        <pre><code>
+const button = document.getElementById("myButton");
+console.log(button.dataset.action); // Outputs: "save"
+button.dataset.action = "delete";
+        </code></pre>
+        <p>If <code>&lt;button id="myButton" data-action="save"&gt;</code> exists, this modifies its <code>data-action</code> value.</p>
+    </section>
+    
+    <footer>
+        <p><a href="../index.html">Back to Index</a></p>
+        <p>© 2025 JavaScript DOM Manipulation</p>
+    </footer>
+    
+</body>
+</html>
