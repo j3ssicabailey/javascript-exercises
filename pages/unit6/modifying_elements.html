@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Managing Attributes in the DOM</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+
+    <header>
+        <a href="../../index.html" class="back-to-home">Home</a>
+        <h1>Managing Attributes in the DOM</h1>
+    </header>
+
+    <section>
+        <h2>Accessing Basic Attributes</h2>
+        <p>Some attributes, like <code>id</code>, <code>class</code>, and <code>src</code>, can be accessed directly as properties.</p>
+        <pre><code>
+const img = document.getElementById("myImage");
+console.log(img.src); // Access the src attribute
+console.log(img.id);  // Access the id attribute
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Accessing Other Attributes</h2>
+        <p>For attributes that do not have a direct property, use <code>getAttribute</code> and <code>hasAttribute</code>.</p>
+        <pre><code>
+const link = document.querySelector("a");
+console.log(link.getAttribute("href")); // Gets the href attribute
+console.log(link.hasAttribute("target")); // Checks if target exists
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Modifying Attributes</h2>
+        <ul>
+            <li><strong>setAttribute:</strong> Adds or updates an attribute.</li>
+            <li><strong>removeAttribute:</strong> Removes an attribute.</li>
+            <li><strong>toggleAttribute:</strong> Toggles an attribute (adds it if missing, removes it if present).</li>
+        </ul>
+        <pre><code>
+const button = document.querySelector("button");
+button.setAttribute("disabled", "true"); // Adds disabled attribute
+button.removeAttribute("disabled"); // Removes disabled attribute
+button.toggleAttribute("data-active"); // Toggles a custom attribute
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Boolean Attributes</h2>
+        <p>Boolean attributes like <code>checked</code>, <code>disabled</code>, and <code>readonly</code> should be managed as properties.</p>
+        <pre><code>
+const checkbox = document.querySelector("input[type='checkbox']");
+console.log(checkbox.checked); // true or false
+checkbox.checked = true; // Sets the checked state
+        </code></pre>
+    </section>
+
+    <footer>
+        <p><a href="../index.html">Back to Index</a></p>
+        <p>© 2025 JavaScript Attributes</p>
+    </footer>
+
+</body>
+</html>
