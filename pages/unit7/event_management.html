@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Managing Events in JavaScript</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="back-to-home">Home</a>
+        <h1>Managing Events in JavaScript</h1>
+    </header>
+
+    <section>
+        <h2>What is an Event?</h2>
+        <p>Events are actions that occur in the browser, such as clicks, keypresses, form submissions, or page loads. JavaScript can respond to these events using event handlers.</p>
+
+        <h2>Disadvantages of Inline Event Handlers</h2>
+        <ul>
+            <li>Mixing HTML and JavaScript reduces code readability and maintainability.</li>
+            <li>Cannot assign multiple event handlers to the same element.</li>
+            <li>Difficult to modify dynamically.</li>
+        </ul>
+
+        <h2>Advantages of addEventListener</h2>
+        <ul>
+            <li>Keeps JavaScript separate from HTML, improving maintainability.</li>
+            <li>Allows multiple event listeners on the same element.</li>
+            <li>Supports event propagation options (capturing and bubbling).</li>
+        </ul>
+
+        <h2>Assigning Multiple Event Listeners</h2>
+        <pre><code>
+const button = document.getElementById("myButton");
+button.addEventListener("click", () => console.log("Button clicked!"));
+button.addEventListener("click", () => alert("You clicked the button!"));
+        </code></pre>
+
+        <h2>Assigning Event Listeners to Multiple Elements</h2>
+        <pre><code>
+const buttons = document.querySelectorAll(".btn");
+buttons.forEach(button => {
+    button.addEventListener("click", () => console.log("Button clicked!"));
+});
+        </code></pre>
+
+        <h2>Event Object and Callbacks</h2>
+        <p>When an event occurs, JavaScript automatically passes an event object to the callback function.</p>
+        <pre><code>
+button.addEventListener("click", function(event) {
+    console.log("Event Type:", event.type);
+    console.log("Target Element:", event.target);
+});
+        </code></pre>
+
+        <h2>Properties of the Event Object</h2>
+        <ul>
+            <li><strong>type:</strong> Type of event (e.g., 'click', 'keydown').</li>
+            <li><strong>target:</strong> Element that triggered the event.</li>
+            <li><strong>currentTarget:</strong> Element to which the listener is attached.</li>
+            <li><strong>clientX/clientY:</strong> Mouse position relative to the viewport.</li>
+            <li><strong>key:</strong> Key pressed (for keyboard events).</li>
+            <li><strong>preventDefault():</strong> Prevents default browser behavior.</li>
+            <li><strong>stopPropagation():</strong> Stops event from propagating.</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p><a href="../index.html">Back to Index</a></p>
+        <p>&copy; 2025 JavaScript Events</p>
+    </footer>
+</body>
+</html>

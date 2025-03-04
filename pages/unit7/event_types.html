@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Types of Events in JavaScript</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="back-to-home">Home</a>
+        <h1>Types of Events in JavaScript</h1>
+    </header>
+    
+    <section>
+        <h2>Form Events</h2>
+        <p>These events occur when interacting with forms.</p>
+        <ul>
+            <li><strong>submit:</strong> Triggered when a form is submitted.</li>
+            <li><strong>change:</strong> Occurs when the value of an input changes.</li>
+            <li><strong>focus:</strong> Fired when an element gains focus.</li>
+            <li><strong>blur:</strong> Fired when an element loses focus.</li>
+        </ul>
+        <pre><code>
+document.querySelector("form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    console.log("Form submitted!");
+});
+
+document.querySelector("input").addEventListener("change", function() {
+    console.log("Input value changed to: " + this.value);
+});
+
+document.querySelector("input").addEventListener("focus", function() {
+    console.log("Input focused");
+});
+
+document.querySelector("input").addEventListener("blur", function() {
+    console.log("Input lost focus");
+});
+        </code></pre>
+        
+        <h2>Mouse Events</h2>
+        <p>These events are triggered by mouse actions.</p>
+        <ul>
+            <li><strong>click:</strong> Fired when an element is clicked.</li>
+            <li><strong>dblclick:</strong> Triggered on a double click.</li>
+            <li><strong>mousemove:</strong> Fired when the mouse moves over an element.</li>
+            <li><strong>mouseover:</strong> Triggered when the mouse enters an element.</li>
+            <li><strong>mouseout:</strong> Triggered when the mouse leaves an element.</li>
+        </ul>
+        <pre><code>
+document.querySelector("button").addEventListener("click", function() {
+    console.log("Button clicked!");
+});
+
+document.querySelector("button").addEventListener("dblclick", function() {
+    console.log("Button double-clicked!");
+});
+
+document.querySelector("div").addEventListener("mousemove", function(event) {
+    console.log(`Mouse position: X=${event.clientX}, Y=${event.clientY}`);
+});
+        </code></pre>
+        
+        <h2>Keyboard Events</h2>
+        <p>These events are triggered by keyboard interactions.</p>
+        <ul>
+            <li><strong>keydown:</strong> Fired when a key is pressed.</li>
+            <li><strong>keyup:</strong> Fired when a key is released.</li>
+            <li><strong>keypress:</strong> (Deprecated) Fired when a key is pressed.</li>
+        </ul>
+        <pre><code>
+document.addEventListener("keydown", function(event) {
+    console.log("Key down: " + event.key);
+});
+
+document.addEventListener("keyup", function(event) {
+    console.log("Key up: " + event.key);
+});
+        </code></pre>
+        
+        <h2>Drag and Drop Events</h2>
+        <p>These events enable drag-and-drop functionality.</p>
+        <ul>
+            <li><strong>dragstart:</strong> Fired when an element starts being dragged.</li>
+            <li><strong>dragover:</strong> Fired when an element is dragged over a valid drop target.</li>
+            <li><strong>drop:</strong> Fired when an element is dropped.</li>
+        </ul>
+        <pre><code>
+document.querySelector("#draggable").addEventListener("dragstart", function(event) {
+    event.dataTransfer.setData("text", event.target.id);
+});
+
+document.querySelector("#dropzone").addEventListener("dragover", function(event) {
+    event.preventDefault();
+});
+
+document.querySelector("#dropzone").addEventListener("drop", function(event) {
+    event.preventDefault();
+    let data = event.dataTransfer.getData("text");
+    event.target.appendChild(document.getElementById(data));
+});
+        </code></pre>
+        
+        <h2>Multimedia Events</h2>
+        <p>These events occur when working with multimedia elements.</p>
+        <ul>
+            <li><strong>play:</strong> Fired when a video or audio starts playing.</li>
+            <li><strong>pause:</strong> Fired when playback is paused.</li>
+            <li><strong>ended:</strong> Fired when playback reaches the end.</li>
+        </ul>
+        <pre><code>
+document.querySelector("video").addEventListener("play", function() {
+    console.log("Video is playing");
+});
+
+document.querySelector("video").addEventListener("pause", function() {
+    console.log("Video is paused");
+});
+
+document.querySelector("video").addEventListener("ended", function() {
+    console.log("Video has ended");
+});
+        </code></pre>
+        
+        <h2>Other Events</h2>
+        <ul>
+            <li><strong>DOMContentLoaded:</strong> Fired when the HTML document has been fully loaded and parsed.</li>
+            <li><strong>resize:</strong> Triggered when the window is resized.</li>
+            <li><strong>scroll:</strong> Fired when the page is scrolled.</li>
+        </ul>
+        <pre><code>
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOM fully loaded and parsed");
+});
+
+window.addEventListener("resize", function() {
+    console.log("Window resized to: " + window.innerWidth + "x" + window.innerHeight);
+});
+
+window.addEventListener("scroll", function() {
+    console.log("User scrolled the page");
+});
+        </code></pre>
+    </section>
+    
+    <footer>
+        <p><a href="../../index.html">Back to Index</a></p>
+        <p>© 2025 JavaScript Event Types</p>
+    </footer>
+</body>
+</html>
