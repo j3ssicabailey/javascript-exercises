@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="stylesheet" href="../../css/styles.css">-->
+    <title>Document</title>
+</head>
+<header>
+    <h1>Exercise 1: Event types</h1>
+    <br>
+    <h3>
+        Crea un programa que a partir de una nutrida variedad de
+        elementos HTML los coloree con colores aleatorios cada
+        vez que se coloque el ratón sobre ellos, y los vuelva a
+        colorear de blanco cuando el ratón los abandone.
+    </h3>
+</header>
+<body>
+    <section class="example">
+        <h2 id="firstH2">H2 Example</h2>
+        <p class="pWithClass">Paragraph with class</p>
+        <p class="pWithClass">Paragraph with class</p>
+        <p>Paragraph without class</p>
+    </section>
+    <section class="list">
+        <ul>
+            <li><a href="" class="listClass">Link 1 with class</a></li>
+            <li><a href=""  class="listClass">Link 2 with class</a></li>
+            <li><a href=""  class="listClass">Link 3 with class</a></li>
+            <li><a href="">Link 4 no class</a></li>
+            <li><a href="">Link 5 no class</a></li>
+        </ul>
+    </section>
+    <section class="form">
+        <form action="https://www.google.com" method="get">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Example Name">
+            </div>
+    
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="example@email.com">
+            </div>
+    
+            <div>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" placeholder="Example message..."></textarea>
+            </div>
+    
+            <div>
+                <label for="options">Choose an option:</label>
+                <select id="options" name="options">
+                    <option value="example1">Example 1</option>
+                    <option value="example2">Example 2</option>
+                    <option value="example3">Example 3</option>
+                </select>
+            </div>
+    
+            <div>
+                <label for="checkbox">Agree to terms:</label>
+                <input type="checkbox" id="checkbox" name="terms">
+            </div>
+    
+            <div>
+                <button type="submit" id="button-send">Submit</button>
+            </div>
+        </form>
+    </section>
+    
+    <section class="table">
+        <table>
+            <tr>
+                <th></th>
+                <th>Column 1</th>
+                <th>Column 2</th>
+                <th>Column 3</th>
+            </tr>
+            <tr>
+                <th>Row 1</th>
+                <td>2</td>
+                <td>4</td>
+                <td>5.7</td>
+            </tr>
+            <tr>
+                <th>Row 2</th>
+                <td>2.6</td>
+                <td>9</td>
+                <td>6.3</td>
+            </tr>
+        </table>
+    </section>
+    <script src="../../js/exercises_eventtypes.js"></script>
+</body>
+</html>
