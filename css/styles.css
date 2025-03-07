@@ -1,27 +1,93 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Mono:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600&family=Inter:wght@300;400;600&display=swap');
 
+/* General Styles */
 body {
     font-family: 'Inter', sans-serif;
     background-color: #f0f0f0;
     color: #333;
     margin: 0;
     padding: 0;
-    line-height: 1.5em;
+    line-height: 1.6em;
+    max-width: 1200px;
+    margin: auto;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
+/* Dark Mode */
+body.dark-mode {
+    background-color: #1e1e1e;
+    color: #ddd;
+}
+
+/* Dark Toggle Button */
+.dark-mode-toggle {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    background: #487a7b;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dark-mode-toggle:hover {
+    background: #244c4d;
+}
+/* Dark Header */
+header.dark-mode {
+    background-color:#584d6d; 
+}
+
+/* Dark Section */
+section.dark-mode {
+    background-color: #2a2a2a; 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+}
+
+/* Dark Footer */
+footer.dark-mode {
+    background-color: #584d6d;
+    color: #ddd;
+}
+
+/* Dark Cards */
+.card.dark-mode {
+    background: #244c4d;; 
+    color: #ddd; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.card.dark-mode:hover {
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); 
+}
+
+.card.dark-mode p {
+    color: #bbb; 
+}
+
+/* Dark Scrollbar */
+body.dark-mode::-webkit-scrollbar-thumb {
+    background: #333;
+}
+
+/* Header */
 header {
     background-color: #487a7b; 
     color: #fff;
     text-align: center;
-    padding: 1.5rem;
-    font-family: 'Fira Mono', monospace;
+    padding: 1rem 2rem;
+    font-family: 'JetBrains Mono', monospace;
     border-radius: 0 0 15px 15px;
     position: relative;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .back-to-home {
     position: absolute;
-    top: 10px;
+    top: 15px;
     left: 20px;
     color: #fff;
     text-decoration: none;
@@ -33,31 +99,37 @@ header {
 }
 
 .back-to-home:hover {
-    background-color: #487a7b;
+    background-color: #244c4d;
 }
 
-
+/* Sections */
 section {
     background-color: #e5d4ef; 
-    margin: 20px auto;
-    padding: 20px;
+    margin: 40px auto;
+    padding: 25px;
     border-radius: 12px;
-    max-width: 800px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
 }
 
 h1, h2 {
-    font-family: 'Fira Mono', monospace;
+    font-family: 'JetBrains Mono', monospace;
 }
 
+/* Footer */
 footer {
     text-align: center;
     padding: 15px;
-    background-color: #cccccc;;
+    background-color: #cccccc;
     color: #333;
-    margin-top: 20px;
+    margin-top: 40px;
     border-radius: 15px 15px 0 0;
-    position: relative; 
+    position: relative;
 }
 
 .footer-logo {
@@ -68,39 +140,60 @@ footer {
     height: auto; 
 }
 
+/* Code Styling */
 code {
     background-color: #2e2e2e;
     color: #f8f8f8;
-    padding: 3px 6px;
+    padding: 4px 8px;
     border-radius: 5px;
 }
 
 pre {
     background-color: #333;
     color: #f8f8f8;
-    padding: 15px;
+    padding: 20px;
     border-radius: 10px;
     overflow-x: auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Button */
 button.home { 
-    padding: 5px;
+    padding: 8px 12px;
+    border: none;
+    background-color: #487a7b;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button.home:hover {
+    background-color: #244c4d;
 }
 
 /* Cards Layout */
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
     padding: 2rem;
+    margin-top: 20px;
 }
 
 .card {
     background: #f4f4f4;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     padding: 1.5rem;
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .card a {
@@ -118,3 +211,22 @@ button.home {
     color: #666;
     margin-top: 1rem;
 }
+
+/* Scroll Effect */
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #f0f0f0;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #487a7b;
+    border-radius: 10px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
