@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Emission & Propagation</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="back-to-home">Back to Index</a>
+        <h1>Event Emission & Propagation</h1>
+    </header>
+    
+    <section>
+        <h2>Event Emission & Custom Events</h2>
+        <p>JavaScript allows you to create and dispatch custom events using the <code>CustomEvent</code> constructor.</p>
+        <pre><code>const myEvent = new CustomEvent("customAction", {
+    detail: { message: "Hello, World!" }
+});
+
+document.addEventListener("customAction", (e) => {
+    console.log(e.detail.message); // "Hello, World!"
+});
+
+document.dispatchEvent(myEvent);</code></pre>
+    </section>
+    
+    <section>
+        <h2>Event Propagation: Bubbling & Capturing</h2>
+        <p>Events move through the DOM in two phases: capturing (from root to target) and bubbling (from target to root).</p>
+        <pre><code>document.querySelector(".parent").addEventListener("click", () => {
+    console.log("Parent clicked");
+}, true); // Capturing phase
+
+document.querySelector(".child").addEventListener("click", () => {
+    console.log("Child clicked");
+}, false); // Bubbling phase</code></pre>
+    </section>
+    
+    <section>
+        <h2>Stopping Propagation</h2>
+        <p>Use <code>stopPropagation()</code> to prevent an event from propagating further.</p>
+        <pre><code>document.querySelector(".child").addEventListener("click", (event) => {
+    event.stopPropagation();
+    console.log("Child clicked, but event won’t propagate.");
+});</code></pre>
+    </section>
+    
+    <section>
+        <h2>Cancelling Events with preventDefault()</h2>
+        <p>Some events, like form submissions and link clicks, have default behaviors. Use <code>preventDefault()</code> to cancel them.</p>
+        <pre><code>document.querySelector("a").addEventListener("click", (event) => {
+    event.preventDefault();
+    console.log("Link click prevented.");
+});</code></pre>
+    </section>
+    
+    <section>
+        <h2>Removing Event Listeners</h2>
+        <p>Use <code>removeEventListener()</code> to stop an event from firing.</p>
+        <pre><code>function handleClick() {
+    console.log("Button clicked");
+}
+
+const button = document.querySelector("button");
+button.addEventListener("click", handleClick);
+button.removeEventListener("click", handleClick);</code></pre>
+    </section>
+    
+    <section>
+        <h2>target vs currentTarget</h2>
+        <p><code>target</code> refers to the actual element that triggered the event, while <code>currentTarget</code> refers to the element handling the event.</p>
+        <pre><code>document.querySelector(".container").addEventListener("click", (event) => {
+    console.log("Target:", event.target); // Clicked element
+    console.log("CurrentTarget:", event.currentTarget); // Element with listener
+});</code></pre>
+    </section>
+    
+    <footer>
+        <p>JavaScript DOM Events</p>
+    </footer>
+</body>
+</html>
