@@ -26,13 +26,11 @@ sortButton.addEventListener("click", () => {
     }
 })
 
-deleteButtons.forEach(button => {
-    button.addEventListener("click", (e) => {
-        let li = e.target.closest("li");
-        if(li) {
-            li.remove();
-        }
-    });
+// Event delegation for delete buttons
+sortableList.addEventListener("click", (e) => {
+    if (e.target.classList.contains("delete")) {
+        e.target.parentElement.remove(); 
+    }
 });
 
 
