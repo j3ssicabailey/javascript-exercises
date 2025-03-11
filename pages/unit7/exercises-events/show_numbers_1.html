@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicios con Eventos</title>
+    <title>Exercise 1 - Events in Javascript</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,75 +15,16 @@
             margin: 20px auto;
             max-width: 600px;
         }
-        .red-box {
-            width: 50px;
-            height: 50px;
-            background-color: red;
-            position: relative;
-        }
-        .blue-box {
-            width: 100px;
-            height: 100px;
-            background-color: blue;
-            position: absolute;
-        }
-        .race-box {
-            height: 40px;
-            width: 10px;
-            margin: 5px auto;
-        }
-        .green-box { background-color: green; }
-        .red-box-race { background-color: red; }
     </style>
 </head>
 <body>
-    <h1>Ejercicios con Eventos</h1>
+    <h1>Exercises with events in Javascript</h1>
+    <h3>Exercise 1 - Changing image</h3>
     
     <div class="exercise" id="exercise1">
-        <h2>1. Cambio de Imagen con Teclas</h2>
         <img id="imageContainer" src="../../../img/imgs-for-events/placeholder-0-9.png" alt="Presiona una tecla del 0 al 9" width="200">
     </div>
-    
-    <div class="exercise" id="exercise2">
-        <h2>2. Mover una Caja Roja</h2>
-        <div class="red-box" id="movableBox"></div>
-    </div>
-    
-    <div class="exercise" id="exercise3">
-        <h2>3. Ordenar y Eliminar Elementos</h2>
-        <ul id="sortableList"></ul>
-        <button id="addItem">Añadir Elemento</button>
-    </div>
-    
-    <div class="exercise" id="exercise4">
-        <h2>4. Escribir en un Párrafo</h2>
-        <p id="typingParagraph"></p>
-        <button id="clearText">Limpiar</button>
-    </div>
-    
-    <div class="exercise" id="exercise5">
-        <h2>5. Evitar que el Ratón Toque la Caja Azul</h2>
-        <div class="blue-box" id="avoidBox"></div>
-    </div>
-    
-    <div class="exercise" id="exercise6">
-        <h2>6. Eliminar Vocales del Texto</h2>
-        <p id="vowelText">Este es un párrafo con muchas vocales.</p>
-        <div id="vowelButtons"></div>
-    </div>
-    
-    <div class="exercise" id="exercise7">
-        <h2>7. Carrera de Pulsaciones</h2>
-        <div class="race-box green-box" id="greenBox"></div>
-        <div class="race-box red-box-race" id="redBoxRace"></div>
-        <p id="raceResult"></p>
-    </div>
-    
-    <div class="exercise" id="exercise8">
-        <h2>8. Juego de Parejas</h2>
-        <div id="memoryGrid"></div>
-    </div>
-    
-    <script src="../../../js/show_numbers_1.js"></script>
+
+    <script src="../../../js/exercises-events-js/show_numbers_1.js"></script>
 </body>
 </html>
