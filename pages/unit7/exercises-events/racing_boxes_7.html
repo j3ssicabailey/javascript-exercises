@@ -18,21 +18,21 @@
         .race-box {
             height: 40px;
             width: 10px;
-        
+            margin-left: 20px;
         }
-        #greenBox { background-color: green; }
-        #redBox { background-color: red; }
+        .green { background-color: green; }
+        .red { background-color: red; }
     </style>
 </head>
 <body>
     <h1>Exercises with events in Javascript</h1>
     <h3>Exercise 7 - Racing boxes</h3>
-    
 
-    <div class="exercise" id="exercise7">
-        <div class="race-box" id="greenBox"></div>
-        <div class="race-box" id="redBox"></div>
+    <div class="boxes" id="exercise7">
+        <div class="race-box green" data-letter="a">A</div>
+        <div class="race-box red" data-letter="ñ">Ñ</div>
         <p id="raceResult">Who will win, red or green?</p>
+        <button id="reset">Reset the game</button>
     </div>
     
     <script src="../../../js/main.js"></script>
