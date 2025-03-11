@@ -212,6 +212,45 @@ button.home:hover {
     margin-top: 1rem;
 }
 
+/* Exercise cards */
+.exercise-cards {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.exercise-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.exercise-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 150px;
+    text-align: center;
+}
+
+.exercise-card a {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.9rem;
+    display: block;
+}
+
+.exercise-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+
 /* Scroll Effect */
 body::-webkit-scrollbar {
     width: 10px;
