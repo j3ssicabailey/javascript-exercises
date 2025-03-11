@@ -3,20 +3,23 @@
 
 // 1. Crea una página HTML con un contenedor de una imagen. Debes tener preparadas diez
 // imágenes y en función de la tecla numérica que se pulse (0, 1, 2, 3, 4, 5, 6, 7, 8, 9) debe aparecer esa imagen en el contenedor. Cuando se pulse otro número, debe vaciarse el contenedor y cargarse de nuevo su imagen correspondiente.
-let imageChange = document.getElementById("imageContainer");
-imageChange.addEventListener("keydown", (e) => {
+
+document.addEventListener("keydown", (e) => {
     if (e.key >= "0" && e.key <= "9") {
         console.log("Generating the corresponding image...")
+
+        let imageChange = document.getElementById("imageContainer");
+        
+        imageChange.setAttribute("src", `../../../img/imgs-for-events/number${e.key}.png`);
+
     } else {
-        alert ("Press a key between 0 and 9");
+        alert("Press a key between 0 and 9");
     }
-    if (e.key === "0") {
-        imageChange.setAttribute("src", "../img/imgs-for-events/number0.png");
-    }
-})
-// 2. Crea una aplicación cuyo código HTML contenga únicamente una caja roja. Cada vez que
-// el usuario pulse algunas de las teclas de los cursores (flecha arriba, flecha abajo, flecha
-// a derecha, flecha a izquierda) la caja debe desplazarse 10 px en la dirección establecida por el cursor.
+});
+console.log("Key pressed:", e.key);
+console.log("Image path:", `../img/imgs-for-events/number${e.key}.png`);
+
+
 // 3. Escribe un programa que permita ordenar los elementos de una lista desordenada. Cada elemento debe tener un aspa en su extremo derecho para poder ser eliminado. Además, al final habrá un botón para añadir un elemento. El texto del nuevo elemento se le debe pedir al usuario por teclado.
 // 4. Elabora un programa que vaya rellenando un párrafo de forma dinámica con todas las le- tras que vaya pulsando el usuario sobre cualquier elemento de la página. Al final del párrafo debes incluir un botón para limpiar el contenido del párrafo.
 // 5. Crea una rutina que no permita que el ratón se coloque encima de una caja azul de 100 x 100 px. Cada vez que el ratón intente colocarse encima, la posición de la caja debe cam- biar aleatoriamente por la página.

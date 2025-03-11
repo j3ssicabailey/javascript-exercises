@@ -163,15 +163,95 @@ h1.style.textAlign = "right";
 //     <p>hola soy el dos</p>
 //   </div>
 // ```
+let divParrafos = document.getElementById("parrafos");
+let newP = document.createElement("p");
+newP.textContent = "soy el tres";
+divParrafos.appendChild(newP);
 // 32. Haz lo mismo que el anterior pero en lugar de insertarlo debajo, insertalo en medio, el p tendrá el texto "hola yo soy el uno y medio".
+let newPMiddle = document.createElement("p");
+newPMiddle.textContent = "hola yo soy el uno y medio";
+
+let firstParrafo = document.querySelector("#parrafos p");
+firstParrafo.insertAdjacentElement("afterend", newPMiddle)
 // 33. Añade un nuevo elemento a una lista de modo que ocupe la primera posición.
+let newLiElement = document.createElement("li");
+newLiElement.textContent = "I'm a new li and I'm first now";
+let list = document.querySelector("ul");
+list.insertBefore(newLiElement, list.firstElementChild);
+
 // 34. Obtén el primer elemento de entre todos los que tengan la clase 'class' y bórralo.
+// let firstClassclass = document.querySelector(".class").remove();
+
 // 35. Convierte  el primer elemento de una lista en un enlace.
+// let uList = document.querySelector("ul");
+// let firstChildA = uList.firstElementChild;
+
+// let newA = document.createElement("a");
+// newA.textContent = firstChildA.textContent;
+
+// uList.insertBefore(newA, firstChildA);
+// firstChildA.remove()
+
 // 36. Borra el atributo title de todas las imágenes con la clase 'img'.
+let images = document.querySelectorAll("img.img");
+for (let img of images) {
+    img.removeAttribute("title");
+}
+
 // 37. Añade un punto final al texto contenido por las etiquetas p.
+let allParas = document.getElementsByTagName("p");
+console.log(allParas);
+for (let p of allParas) {
+    if (!p.textContent.endsWith(".")) { 
+        p.textContent += ".";
+    }
+}
 // 38. De un conjunto de etiquetas article hijos de un section con la clase 'products', selecciona aquellos que tengan la clase 'oferta' y establece el valor de su atributo data-iva a cero
+let articles = document.querySelectorAll("section.productos > article.oferta");
+for (let a of articles) {
+    a.dataset.iva = 0;
+}
 // 39. Añade el texto "Modificado" al tercer li de todos los  ul
+let allUls = document.getElementsByTagName("ul");
+for (let ul of allUls) {
+    let newTextNode = dicument.createTextNode("Modificado");
+    if (ul.children.length >= 3) {
+        ul.children[2].appendChild(newTextNode)
+    }
+}
+
 // 40. Incluye la clase porelasterisco en todos los p que tengan la clase preparado
+let psPrep = document.querySelectorAll("p.preparado");
+for (let p of psPrep) {
+    p.classList.add(".porelasterisco");
+}
 // 41. Inserta un div con la clase pepaino y cuyo border sea rojo, con dos etiquetas hijas p, en las que el primer párrafo sea la clase del div y el segundo párrafo sea el color del border.
+let newDivStyled = document.createElement("div");
+newDivStyled.classList.add("pepaino");
+newDivStyled.style.borderColor = "red";
+
+let newPInDiv1 = document.createElement("p")
+let newPInDiv2 = document.createElement("p")
+newPInDiv1.textContent = "pepaino";
+newPInDiv2.textConent = "red"
+newDivStyled.appendChild(newPInDiv1);
+newDivStyled.appendChild(newPInDiv2);
+
 // 42. De las listas no ordenadas, selecciona el primer y último hijo "li" y sus hermanos anteriores o posteriores y cambiales el color a rojo
+let listsUL = document.getElementsByTagName("ul");
+for (let ul of listsUL) {
+    let firstChild = ul.firstElementChild;
+    let lastChild = ul.lastElementChild;
+    let secondChild = ul.children[1];
+    let penultimateChild = il.children[ul.children.length - 2];
+    firstChild.style.color = "blue";
+    lastChild.style.color = "blue";
+    secondChild.style.color = "blue";
+    penultimateChild.style.color = "blue";
+}
 // 43. Seleccionar los span que sean hijos de un "p" cuyo padre del elemento "p" sea un div con la clase "padre"y cambia los estilos del div poniendo un color de fondo azul
+
+let spanPs = document.querySelectorAll(div.padre > p > span);
+for (let span of spanPs) {
+    span.parentElement.parentElement.style.backgroundColor = "blue";
+}
