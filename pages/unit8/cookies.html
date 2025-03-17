@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies in JavaScript</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="back-to-home">Home</a>
+        <h1>Cookies in JavaScript</h1>
+    </header>
+
+    <section>
+        <h2>What are Cookies?</h2>
+        <p>Cookies are small pieces of data stored in the browser. They can be used to save user preferences, authentication details, and other small pieces of information. Cookies are sent with every HTTP request to the server, which can be used to maintain session states or track user behavior.</p>
+
+        <h2>Setting a Cookie</h2>
+        <p>You can set a cookie in JavaScript by assigning a string to `document.cookie`. The format is: <strong>key=value</strong>, and optional attributes like <strong>expires</strong>, <strong>path</strong>, <strong>domain</strong>, and <strong>secure</strong> can be included.</p>
+
+        <h3>Basic Example</h3>
+        <pre><code>
+document.cookie = "username=JohnDoe";
+        </code></pre>
+
+        <h3>Cookie with Expiration</h3>
+        <p>You can set an expiration date for the cookie. If not set, the cookie will expire when the session ends (i.e., when the browser is closed).</p>
+        <pre><code>
+let expirationDate = new Date();
+expirationDate.setMinutes(expirationDate.getMinutes() + 5); // 5 minutes expiration
+document.cookie = "username=JohnDoe; expires=" + expirationDate.toUTCString();
+        </code></pre>
+
+        <h3>Cookie with Path</h3>
+        <p>By default, cookies are accessible to the entire domain. You can restrict access by specifying a path.</p>
+        <pre><code>
+document.cookie = "username=JohnDoe; expires=" + expirationDate.toUTCString() + "; path=/user";
+        </code></pre>
+
+        <h2>Reading a Cookie</h2>
+        <p>To read a cookie, you simply access `document.cookie`. It will return all cookies as a single string, with each key-value pair separated by a semicolon.</p>
+        <pre><code>
+let cookies = document.cookie;
+console.log(cookies);
+        </code></pre>
+        <p>To get a specific cookie value, you may need to parse this string:</p>
+        <pre><code>
+function getCookie(name) {
+    let cookies = document.cookie.split('; ');
+    for (let cookie of cookies) {
+        let [key, value] = cookie.split('=');
+        if (key === name) {
+            return value;
+        }
+    }
+    return null;
+}
+
+let username = getCookie("username");
+console.log(username);  // "JohnDoe"
+        </code></pre>
+
+        <h2>Deleting a Cookie</h2>
+        <p>To delete a cookie, you set its expiration date to a past date.</p>
+        <pre><code>
+document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+        </code></pre>
+
+        <h2>Example: Storing User Preferences</h2>
+        <p>Here’s an example where a user’s theme preference (light or dark mode) is stored in a cookie.</p>
+        <pre><code>
+function setTheme(theme) {
+    document.cookie = "theme=" + theme + "; expires=" + expirationDate.toUTCString() + "; path=/";
+}
+
+function getTheme() {
+    return getCookie("theme");
+}
+
+let savedTheme = getTheme();
+if (savedTheme) {
+    document.body.classList.add(savedTheme);
+} else {
+    document.body.classList.add("light");
+}
+        </code></pre>
+
+        <h2>Security Considerations</h2>
+        <ul>
+            <li><strong>Secure cookies:</strong> Set the <strong>secure</strong> flag to ensure cookies are only sent over HTTPS.</li>
+            <li><strong>HttpOnly cookies:</strong> Prevent JavaScript from accessing the cookie value by setting the <strong>HttpOnly</strong> flag.</li>
+            <li><strong>SameSite attribute:</strong> Control cross-site cookie behavior (e.g., prevent cookies from being sent with cross-site requests).</li>
+        </ul>
+        <pre><code>
+document.cookie = "username=JohnDoe; secure; HttpOnly; SameSite=Strict";
+        </code></pre>
+    </section>
+
+    <footer>
+        <p><a href="../../index.html">Back to Index</a></p>
+        <p>© 2025 Cookies in JavaScript</p>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+</body>
+</html>
