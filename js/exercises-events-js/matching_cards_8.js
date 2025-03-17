@@ -3,48 +3,87 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     let memoryGrid = document.getElementById("memoryGrid");
+    let playAgainBtn = document.getElementById("playAgainBtn");
     let cols = 6;
     let rows = 5;
 
-    // Create colors array
-    let colorsArray = [];
-    for (let i = 0; i < (cols * rows) / 2; i++) {
-        let red = Math.floor(Math.random() * 256);
-        let green = Math.floor(Math.random() * 256);
-        let blue = Math.floor(Math.random() * 256);
-        let color = `rgb(${red}, ${green}, ${blue})`;
-        colorsArray.push(color, color);
-    }
+    // Function to reset the game
+    function resetGame() {
+        // Clear the grid
+        memoryGrid.innerHTML = '';
+        
+        // Create colors array
+        let colorsArray = [];
+        for (let i = 0; i < (cols * rows) / 2; i++) {
+            let red = Math.floor(Math.random() * 256);
+            let green = Math.floor(Math.random() * 256);
+            let blue = Math.floor(Math.random() * 256);
+            let color = `rgb(${red}, ${green}, ${blue})`;
+            colorsArray.push(color, color);
+        }
 
-    // Shuffle colors
-    function shuffle(array) {
-        let currentIndex = array.length;
-        while (currentIndex !== 0) {
-            let randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex--;
-            [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+        // Shuffle colors
+        function shuffle(array) {
+            let currentIndex = array.length;
+            while (currentIndex !== 0) {
+                let randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+            }
+        }
+        shuffle(colorsArray);
+
+        // Create cards and assign colors
+        for (let row = 0; row < rows; row++) {
+            for (let col = 0; col < cols; col++) {
+                let card = document.createElement("div");
+                card.classList.add("matchingCards");
+
+                let index = row * cols + col; 
+                card.dataset.color = colorsArray[index];
+                card.dataset.open = false;
+                card.dataset.found = false;
+                memoryGrid.appendChild(card);
+
+                // Function to check color
+                let colorChecker = (e) => {
+                    e.target.style.backgroundColor = e.target.dataset.color;
+                    e.target.dataset.open = true;
+
+                    let cardsOpen = document.querySelectorAll("[data-open = 'true']");
+                    if (cardsOpen.length === 2) {
+                        if (cardsOpen[0].dataset.color === cardsOpen[1].dataset.color) {
+                            cardsOpen[0].removeEventListener("click", colorChecker);
+                            cardsOpen[1].removeEventListener("click", colorChecker);
+                            cardsOpen[0].dataset.open = false;
+                            cardsOpen[1].dataset.open = false;
+                            cardsOpen[0].dataset.found = true;
+                            cardsOpen[1].dataset.found = true;
+
+                            let gameCompleted = document.querySelectorAll(`[data-found = "true"]`);
+                            if(gameCompleted.length === cols * rows) {
+                                alert("All matching pairs were found!");
+                            }
+                        } else {
+                            setTimeout(() => {
+                                cardsOpen[0].style.backgroundColor = "rgb(36, 36, 36)";
+                                cardsOpen[1].style.backgroundColor = "rgb(36, 36, 36)";
+                                cardsOpen[0].dataset.open = false;
+                                cardsOpen[1].dataset.open = false;
+                            }, 750);
+                        }
+                    }
+                };
+
+                // Event listener
+                card.addEventListener("click", colorChecker);
+            }
         }
     }
-    shuffle(colorsArray);
 
-    // Create cards and assign colors
-    for (let row = 0; row < rows; row++) {
-        for (let col = 0; col < cols; col++) {
-            let card = document.createElement("div");
-            card.classList.add("matchingCards");
+    // Initialize the game
+    resetGame();
 
-            let index = row * cols + col; 
-            card.dataset.color = colorsArray[index];
-
-            card.dataset.color = colorsArray.pop();
-            memoryGrid.appendChild(card);
-
-            // Click - reveal color
-            card.addEventListener("click", (e) => {
-                e.target.style.backgroundColor = e.target.dataset.color;
-            });
-        }
-    }
+    // Event listener for "Play Again" button
+    playAgainBtn.addEventListener("click", resetGame);
 });
-
-
