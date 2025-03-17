@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 8 - Events in Javascript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .exercise {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+        #memoryGrid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            gap: 10px;
+            justify-content: center;
+        }
+        div.matchingCards {
+            border: 2px solid black;
+            width: 50px;
+            height: 50px;
+            background-color: rgb(36, 36, 36);
+        }
+    </style>
+</head>
+<body>
+    <h1>Exercises with events in Javascript</h1>
+    <h3>Exercise 8 - Matching cards game</h3>
+    
+    <section>
+        <div class="exercise" id="exercise8">
+            <div id="memoryGrid">
+            </div>
+        </div>
+    </section>
+
+    <script src="../../../js/main.js"></script>
+    <script src="../../../js/exercises-events-js/matching_cards_8.js"></script>
+</body>
+</html>
