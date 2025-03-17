@@ -8,6 +8,7 @@ vowelButtons.addEventListener("click", (e) => {
     let newText = text.textContent.split("").filter(letter =>
         letter.toLowerCase() !== vowel).join("");
     text.textContent = newText;
+    e.target.disabled = true;
 });
     
     

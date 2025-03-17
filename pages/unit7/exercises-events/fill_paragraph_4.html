@@ -9,6 +9,11 @@
             font-family: Arial, sans-serif;
             text-align: center;
         }
+        p {
+            max-width: 75%;
+            text-align: center;
+            margin: 0 auto; 
+        }
         .exercise {
             border: 1px solid #ccc;
             padding: 20px;
@@ -22,7 +27,8 @@
 </head>
 <body>
     <h1>Exercises with events in Javascript</h1>
-    <h3>Exercise 4 - Fill paragraph</h3>
+    <h3>Exercise 4 - Dynamic Text Typing and Clearing</h3>
+    <p>This exercise dynamically adds the letters you type into a paragraph. You can press any key to add it to the text. Press backspace to remove the last character, and use the spacebar to add spaces. There's also a button to clear the content of the paragraph with a confirmation prompt.</p>
     
     <div class="exercise" id="exercise4">
         <p>Type your text below: </p>
@@ -30,6 +36,7 @@
     </div>
     <button id="clearText">Clear</button>
     
+    <script src="../../../js/main.js"></script>
     <script src="../../../js/exercises-events-js/fill_paragraph_4.js"></script>
 </body>
 </html>

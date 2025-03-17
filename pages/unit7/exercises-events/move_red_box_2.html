@@ -15,6 +15,11 @@
             margin: 20px auto;
             max-width: 600px;
         }
+        p {
+            max-width: 75%;
+            text-align: center;
+            margin: 0 auto; 
+        }
         .red-box {
             width: 50px;
             height: 50px;
@@ -25,12 +30,14 @@
 </head>
 <body>
     <h1>Exercises with events in Javascript</h1>
-    <h3>Exercise 2 - Move red box</h3>
+    <h3>Exercise 2 - Move Box with Arrow Keys</h3>
+    <p>In this exercise, a red box moves on the page based on the arrow keys you press (up, down, left, or right). Every time you press one of the arrow keys, the box shifts by 10 pixels in the direction of the arrow. Use the arrow keys to move the box around.</p>
     
     <div class="exercise" id="exercise2">
         <div class="red-box" id="movableBox"></div>
     </div>
     
+    <script src="../../../js/main.js"></script>
     <script src="../../../js/exercises-events-js/move_red_box_2.js"></script>
 </body>
 </html>

@@ -15,16 +15,24 @@
             margin: 20px auto;
             max-width: 600px;
         }
+        p {
+            max-width: 75%;
+            text-align: center;
+            margin: 0 auto;
+        }
+
     </style>
 </head>
 <body>
     <h1>Exercises with events in Javascript</h1>
-    <h3>Exercise 1 - Changing image</h3>
+    <h3>Exercise 1 - Image Switcher with Key Press</h3>
+    <p>This exercise allows you to press a numeric key (0 to 9) to display a corresponding image in the container. If a different number is pressed, the current image is replaced with the new one. You can interact by pressing the number keys to change the image shown on the page.</p>
     
     <div class="exercise" id="exercise1">
         <img id="imageContainer" src="../../../img/imgs-for-events/placeholder-0-9.png" alt="Presiona una tecla del 0 al 9" width="200">
     </div>
 
+    <script src="../../../js/main.js"></script>
     <script src="../../../js/exercises-events-js/show_numbers_1.js"></script>
 </body>
 </html>

@@ -16,11 +16,20 @@
             max-width: 600px;
             text-align: left;
         }
+        .delete {
+            cursor: pointer;
+        }
+        p {
+            max-width: 75%;
+            text-align: center;
+            margin: 0 auto; 
+        }
     </style>
 </head>
 <body>
     <h1>Exercises with events in Javascript</h1>
-    <h3>Exercise 3 - List management</h3>
+    <h3>Exercise 3 - Sortable List with Add and Delete Functionality</h3>
+    <p>Here, you can add items to a list by entering text, which will then be displayed as a new list item. You can also delete items by clicking on the "✖" icon next to them, and sort the list alphabetically using the "Sort List" button. Add new items and sort the list as you like.</p>
     
     <div class="exercise" id="exercise3">
         <ul id="sortableList">
@@ -32,6 +41,7 @@
         <button id="sortList">Sort list</button>
     </div>
     
+    <script src="../../../js/main.js"></script>
     <script src="../../../js/exercises-events-js/order_edit_list_3.js"></script>
 </body>
 </html>

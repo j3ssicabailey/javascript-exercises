@@ -9,7 +9,12 @@
             font-family: Arial, sans-serif;
             text-align: center;
         }
-    
+        p {
+            max-width: 75%;
+            text-align: center;
+            margin: 0 auto; 
+        }
+
         .blue-box {
             width: 100px;
             height: 100px;
@@ -21,12 +26,14 @@
 </head>
 <body>
     <h1>Exercises with events in Javascript</h1>
-    <h3>Exercise 5 - Moving blue box</h3>
+    <h3>Exercise 5 - Avoid Mouse Over Box</h3>
+    <p>In this exercise, a blue box moves randomly on the page whenever the mouse tries to hover over it. It ensures the box is always out of reach by repositioning it every time you move your cursor over it. Try to catch the box by hovering over it!</p>
     
     <div class="exercise" id="exercise5">
         <div class="blue-box" id="avoidBox"></div>
     </div>
     
+    <script src="../../../js/main.js"></script>
     <script src="../../../js/exercises-events-js/moving_blue_box_5.js"></script>
 </body>
 </html>

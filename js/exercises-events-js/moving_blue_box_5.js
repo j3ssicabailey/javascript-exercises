@@ -4,7 +4,7 @@ let blueBox = document.getElementById("avoidBox");
 
 let moveBox = () => {
     blueBox.style.position = "absolute";
-    let maxWidth = window.innerWidth - blueBox.offsetWidth; // Prevent overflow
+    let maxWidth = window.innerWidth - blueBox.offsetWidth; 
     let maxHeight = window.innerHeight - blueBox.offsetHeight; 
 
     let randomX = Math.floor(Math.random() * maxWidth);

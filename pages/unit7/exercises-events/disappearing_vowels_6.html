@@ -16,6 +16,11 @@
             max-width: 600px;
             line-height: 1.5rem;
         }
+        p {
+            max-width: 75%;
+            text-align: center;
+            margin: 0 auto; 
+        }
         #vowelButtons button {
             min-width: 30px;
             max-width: 50px;
@@ -27,6 +32,7 @@
 <body>
     <h1>Exercises with events in Javascript</h1>
     <h3>Exercise 6 - Disappearing Vowels</h3>
+    <p>This exercise allows you to remove specific vowels (a, e, i, o, u) from a block of text by clicking on corresponding buttons for each vowel. After clicking a button, all occurrences of the selected vowel will disappear from the text. Click the buttons to remove vowels one by one.</p>
 
     <div class="exercise" id="exercise6">
         <p id="vowelText">Event management in JavaScript involves handling and responding to user interactions such as clicks, keypresses, or mouse movements. This is achieved by using event listeners, which are functions that wait for specific events to occur on elements. When the event is triggered, the corresponding function runs, allowing developers to control behavior dynamically on web pages. This mechanism enables interactivity and enhances user experience by reacting to actions like button clicks or form submissions in real-time.</p>
@@ -38,7 +44,7 @@
         <button data-vowel="o">O</button>
         <button data-vowel="u">U</button>
     </div>
-    
+    <script src="../../../js/main.js"></script>
     <script src="../../../js/exercises-events-js/disappearing_vowels_6.js"></script>
 </body>
 </html>
