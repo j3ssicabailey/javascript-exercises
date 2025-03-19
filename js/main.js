@@ -1,35 +1,39 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     const toggleButton = document.getElementById('dark-mode-toggle');
     const body = document.body;
-
-    // Ensure elements exist before trying to manipulate them
     const header = document.querySelector('header');
     const footer = document.querySelector('footer');
     const cards = document.querySelectorAll('.card');
     const sections = document.querySelectorAll('section');
 
-    // Check if the toggleButton exists
-    if (toggleButton) {
-        // Check local storage for preference
-        if (localStorage.getItem('dark-mode') === 'enabled') {
+    // Function to apply dark mode
+    function applyDarkMode(enabled) {
+        if (enabled) {
             body.classList.add('dark-mode');
             if (header) header.classList.add('dark-mode');
             if (footer) footer.classList.add('dark-mode');
             cards.forEach(card => card.classList.add('dark-mode'));
             sections.forEach(section => section.classList.add('dark-mode'));
+        } else {
+            body.classList.remove('dark-mode');
+            if (header) header.classList.remove('dark-mode');
+            if (footer) footer.classList.remove('dark-mode');
+            cards.forEach(card => card.classList.remove('dark-mode'));
+            sections.forEach(section => section.classList.remove('dark-mode'));
         }
+    }
 
+    // Check localStorage for dark mode preference on page load
+    const darkModeEnabled = localStorage.getItem('dark-mode') === 'enabled';
+    applyDarkMode(darkModeEnabled);
+
+    // Ensure the toggle button exists before adding event listener
+    if (toggleButton) {
         toggleButton.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            if (header) header.classList.toggle('dark-mode');
-            if (footer) footer.classList.toggle('dark-mode');
-            cards.forEach(card => card.classList.toggle('dark-mode'));
-            sections.forEach(section => section.classList.toggle('dark-mode'));
-
-            // Save preference to local storage
-            const mode = body.classList.contains('dark-mode') ? 'enabled' : 'disabled';
-            localStorage.setItem('dark-mode', mode);
+            const isEnabled = body.classList.toggle('dark-mode');
+            applyDarkMode(isEnabled);
+            localStorage.setItem('dark-mode', isEnabled ? 'enabled' : 'disabled');
         });
-    };
-    
+    }
 });
