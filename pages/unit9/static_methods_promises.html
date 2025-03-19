@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Methods in Promises</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="back-to-home">Home</a>
+        <h1>Static Methods in Promises</h1>
+    </header>
+
+    <section>
+        <h2>Static Methods Overview</h2>
+        <p>JavaScript provides several static methods for handling multiple promises efficiently.</p>
+
+        <h2>Promise.all()</h2>
+        <p><strong>Waits for all promises to resolve or rejects if any fail.</strong></p>
+        <pre><code>
+const promise1 = Promise.resolve(10);
+const promise2 = new Promise(resolve => setTimeout(() => resolve(20), 1000));
+const promise3 = new Promise((_, reject) => setTimeout(() => reject("Error"), 500));
+
+Promise.all([promise1, promise2, promise3])
+    .then(values => console.log(values))
+    .catch(error => console.error(error)); // Rejects immediately with "Error"
+        </code></pre>
+
+        <h2>Promise.race()</h2>
+        <p><strong>Resolves or rejects as soon as the first promise settles.</strong></p>
+        <pre><code>
+const fast = new Promise(resolve => setTimeout(() => resolve("Fast!"), 500));
+const slow = new Promise(resolve => setTimeout(() => resolve("Slow"), 2000));
+
+Promise.race([fast, slow]).then(result => console.log(result)); // "Fast!" after 500ms
+        </code></pre>
+
+        <h2>Promise.any()</h2>
+        <p><strong>Resolves with the first fulfilled promise or rejects if all fail.</strong></p>
+        <pre><code>
+const p1 = new Promise((_, reject) => setTimeout(() => reject("Fail 1"), 500));
+const p2 = new Promise(resolve => setTimeout(() => resolve("Success!"), 1000));
+const p3 = new Promise((_, reject) => setTimeout(() => reject("Fail 3"), 1500));
+
+Promise.any([p1, p2, p3])
+    .then(value => console.log(value)) // "Success!" after 1000ms
+    .catch(error => console.error(error));
+        </code></pre>
+
+        <h2>Promise.allSettled()</h2>
+        <p><strong>Waits for all promises and returns their results, regardless of success or failure.</strong></p>
+        <pre><code>
+const promiseA = Promise.resolve("Resolved A");
+const promiseB = Promise.reject("Rejected B");
+const promiseC = new Promise(resolve => setTimeout(() => resolve("Resolved C"), 1000));
+
+Promise.allSettled([promiseA, promiseB, promiseC])
+    .then(results => console.log(results));
+        </code></pre>
+    </section>
+
+    <footer>
+        <p><a href="../../index.html">Back to Index</a></p>
+        <p>© 2025 Static Methods in Promises</p>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+</body>
+</html>

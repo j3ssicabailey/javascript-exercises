@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handling Promises</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="back-to-home">Home</a>
+        <h1>Handling Promises</h1>
+    </header>
+
+    <section>
+        <h2>Handling Promises</h2>
+        <p>Once a promise is created, we handle its result using the methods <code>.then()</code>, <code>.catch()</code>, and <code>.finally()</code>.</p>
+
+        <h3>The <code>.then()</code> Method</h3>
+        <p>The <code>.then()</code> method is used to handle the resolved value of a promise.</p>
+        <pre><code>
+let myPromise = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("Promise fulfilled!"), 2000);
+});
+
+myPromise.then(result => {
+    console.log(result); // "Promise fulfilled!"
+});
+        </code></pre>
+
+        <h3>The <code>.catch()</code> Method</h3>
+        <p>The <code>.catch()</code> method handles any rejection from the promise.</p>
+        <pre><code>
+let myPromise = new Promise((resolve, reject) => {
+    setTimeout(() => reject("Something went wrong!"), 2000);
+});
+
+myPromise.catch(error => {
+    console.log(error); // "Something went wrong!"
+});
+        </code></pre>
+
+        <h3>The <code>.finally()</code> Method</h3>
+        <p>The <code>.finally()</code> method runs regardless of whether the promise was resolved or rejected.</p>
+        <pre><code>
+let myPromise = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("Done!"), 2000);
+});
+
+myPromise
+    .then(result => console.log(result))
+    .catch(error => console.log(error))
+    .finally(() => console.log("Promise finished"));
+        </code></pre>
+    </section>
+
+    <footer>
+        <p><a href="../../index.html">Back to Index</a></p>
+        <p>© 2025 Handling Promises</p>
+    </footer>
+</body>
+</html>

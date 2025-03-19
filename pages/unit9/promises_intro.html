@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises in JavaScript</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="back-to-home">Home</a>
+        <h1>Promises in JavaScript</h1>
+    </header>
+
+    <section>
+        <h2>What Are Promises?</h2>
+        <p>A promise in JavaScript represents a value that may be available now, in the future, or never. It helps handle asynchronous operations efficiently.</p>
+
+        <h2>Creating a Promise</h2>
+        <p>A Promise is created using the <code>new Promise</code> constructor, which takes a function with two parameters: <strong>resolve</strong> (for success) and <strong>reject</strong> (for failure).</p>
+        <pre><code>
+const myPromise = new Promise((resolve, reject) => {
+    let success = true;
+    if (success) {
+        resolve("Operation successful");
+    } else {
+        reject("Operation failed");
+    }
+});
+        </code></pre>
+
+        <h2>Promise States</h2>
+        <ul>
+            <li><strong>Pending:</strong> Initial state, before the promise is resolved or rejected.</li>
+            <li><strong>Fulfilled:</strong> The operation was successful.</li>
+            <li><strong>Rejected:</strong> The operation failed.</li>
+        </ul>
+
+        <p>Continue to <a href="promise-handling.html">Handling Promises</a> to learn how to work with them.</p>
+    </section>
+
+    <footer>
+        <p><a href="../../index.html">Back to Index</a></p>
+        <p>© 2025 JavaScript Notes</p>
+    </footer>
+</body>
+</html>

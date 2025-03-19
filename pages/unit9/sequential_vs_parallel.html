@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sequential vs Parallel Execution in Promises</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="back-to-home">Home</a>
+        <h1>Sequential vs Parallel Execution in Promises</h1>
+    </header>
+
+    <section>
+        <h2>Sequential Execution</h2>
+        <p>In sequential execution, promises are executed one after another, meaning the second promise starts only when the first one is resolved.</p>
+        <pre><code>
+function sequentialPromises() {
+    return fetch('https://api.example.com/data1')
+        .then(response => response.json())
+        .then(data1 => {
+            console.log('Data 1:', data1);
+            return fetch('https://api.example.com/data2');
+        })
+        .then(response => response.json())
+        .then(data2 => {
+            console.log('Data 2:', data2);
+        });
+}
+
+sequentialPromises();
+        </code></pre>
+        <p>This approach is useful when the second operation depends on the first.</p>
+
+        <h2>Parallel Execution</h2>
+        <p>In parallel execution, multiple promises are initiated at the same time, improving efficiency.</p>
+        <pre><code>
+function parallelPromises() {
+    const fetch1 = fetch('https://api.example.com/data1').then(res => res.json());
+    const fetch2 = fetch('https://api.example.com/data2').then(res => res.json());
+
+    Promise.all([fetch1, fetch2]).then(([data1, data2]) => {
+        console.log('Data 1:', data1);
+        console.log('Data 2:', data2);
+    });
+}
+
+parallelPromises();
+        </code></pre>
+        <p>This is ideal when the operations are independent and don't rely on each other.</p>
+
+        <h2>Performance Considerations</h2>
+        <ul>
+            <li>Sequential execution ensures dependencies are respected but can be slow.</li>
+            <li>Parallel execution speeds up the process but should only be used when tasks are independent.</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p><a href="../../index.html">Back to Index</a></p>
+        <p>© 2025 JavaScript Promises</p>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+</body>
+</html>

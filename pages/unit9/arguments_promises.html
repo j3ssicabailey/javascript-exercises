@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Arguments with Promises</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="back-to-home">Home</a>
+        <h1>Using Arguments with Promises</h1>
+    </header>
+
+    <section>
+        <h2>Passing Arguments to Promises</h2>
+        <p>Promises can take arguments, which can be used inside the executor function to determine the outcome of the promise.</p>
+        
+        <h3>Example with a Function Parameter</h3>
+        <pre><code>
+const checkNumber = (num) => {
+    return new Promise((resolve, reject) => {
+        if (num > 10) {
+            resolve(`${num} is greater than 10`);
+        } else {
+            reject(`${num} is not greater than 10`);
+        }
+    });
+};
+
+checkNumber(15)
+    .then(result => console.log(result))
+    .catch(error => console.error(error));
+        </code></pre>
+
+        <h2>Turning Promises into Arrow Functions</h2>
+        <p>Promises can be written more concisely using arrow functions.</p>
+
+        <h3>Standard Function vs Arrow Function</h3>
+        <pre><code>
+// Traditional function
+function fetchData(url) {
+    return new Promise((resolve, reject) => {
+        fetch(url)
+            .then(response => response.json())
+            .then(data => resolve(data))
+            .catch(error => reject(error));
+    });
+}
+
+// Arrow function version
+const fetchDataArrow = (url) => new Promise((resolve, reject) => {
+    fetch(url)
+        .then(response => response.json())
+        .then(resolve)
+        .catch(reject);
+});
+        </code></pre>
+
+        <h2>Example with Multiple Arguments</h2>
+        <pre><code>
+const multiplyNumbers = (a, b) => new Promise((resolve, reject) => {
+    if (typeof a === "number" && typeof b === "number") {
+        resolve(a * b);
+    } else {
+        reject("Both arguments must be numbers");
+    }
+});
+
+multiplyNumbers(4, 5)
+    .then(result => console.log("Result:", result))
+    .catch(error => console.error("Error:", error));
+        </code></pre>
+    </section>
+
+    <footer>
+        <p><a href="../../index.html">Back to Index</a></p>
+        <p>© 2025 Promises in JavaScript</p>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+</body>
+</html>
