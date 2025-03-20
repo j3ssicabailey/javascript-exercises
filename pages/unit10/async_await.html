@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async/Await in JavaScript</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="back-to-home">Home</a>
+        <h1>Async/Await in JavaScript</h1>
+    </header>
+
+    <section>
+        <h2>What is Async/Await?</h2>
+        <p>Async/Await is a modern way to handle asynchronous code in JavaScript, making it easier to write and read.</p>
+
+        <h2>Example of Async/Await</h2>
+        <pre><code>
+async function fetchData() {
+    try {
+        let response = await fetch('https://api.example.com/data');
+        let data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+fetchData();
+        </code></pre>
+    </section>
+
+    <footer>
+        <p><a href="../../index.html">Back to Index</a></p>
+        <p>© 2025 Async/Await in JavaScript</p>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+</body>
+</html>

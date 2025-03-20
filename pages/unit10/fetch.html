@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Fetch API</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="back-to-home">Home</a>
+        <h1>Using Fetch API</h1>
+    </header>
+
+    <section>
+        <h2>What is the Fetch API?</h2>
+        <p>The Fetch API is a modern way to make HTTP requests in JavaScript.</p>
+
+        <h2>Making a Simple Fetch Request</h2>
+        <pre><code>
+fetch('https://api.example.com/data')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+        </code></pre>
+
+        <h2>Handling Responses</h2>
+        <p>The response from Fetch is a <code>Response</code> object. You can access data by calling methods like <code>response.json()</code>, <code>response.text()</code>, etc.</p>
+    </section>
+
+    <footer>
+        <p><a href="../../index.html">Back to Index</a></p>
+        <p>© 2025 Using Fetch API</p>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+</body>
+</html>
