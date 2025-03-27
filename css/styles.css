@@ -43,7 +43,7 @@ header.dark-mode {
 
 /* Dark Section */
 section.dark-mode {
-    background-color: #2a2a2a; 
+    background-color: #244c4d; 
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
 }
 
@@ -55,7 +55,7 @@ footer.dark-mode {
 
 /* Dark Cards */
 .card.dark-mode {
-    background: #244c4d;; 
+    background: #487a7b; 
     color: #ddd; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
@@ -248,6 +248,50 @@ button.home:hover {
 .exercise-card:hover {
     transform: translateY(-3px);
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1rem;
+    background: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #487a7b;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+tr:hover {
+    background-color: rgba(72, 122, 123, 0.1);
+}
+
+/* Dark Mode Table */
+body.dark-mode table {
+    background: #2a2a2a;
+    color: #ddd;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode th {
+    background-color: #244c4d;
+}
+
+body.dark-mode tr:hover {
+    background-color: rgba(36, 76, 77, 0.2);
 }
 
 

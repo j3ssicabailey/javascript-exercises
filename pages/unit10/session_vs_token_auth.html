@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session-Based vs. Token-Based Authentication</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="back-to-home">Home</a>
+        <h1>Session-Based vs. Token-Based Authentication</h1>
+    </header>
+
+    <section>
+        <h2>What is Authentication?</h2>
+        <p>Authentication is the process of verifying a user's identity before granting access to a system. Two common methods of authentication are:</p>
+        <ul>
+            <li><strong>Session-Based Authentication:</strong> Stores user session data on the server.</li>
+            <li><strong>Token-Based Authentication:</strong> Uses self-contained tokens (e.g., JWT) to authenticate users without storing session data on the server.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Session-Based Authentication</h2>
+        <p>Session-based authentication relies on server-stored session data. When a user logs in:</p>
+        <ol>
+            <li>The server creates a session and stores session data.</li>
+            <li>A session ID is sent to the user's browser via a cookie.</li>
+            <li>Each request includes the session ID, allowing the server to verify the user.</li>
+        </ol>
+        <img src="../../img/session-auth-diagram.jpg" alt="Session-Based Authentication Diagram" width="70%">
+    </section>
+
+    <section>
+        <h2>Token-Based Authentication (JWT)</h2>
+        <p>Token-based authentication, such as JWT (JSON Web Token), works without server-side session storage.</p>
+        <ol>
+            <li>When a user logs in, the server generates a token.</li>
+            <li>The token is sent to the user and stored in localStorage or sessionStorage.</li>
+            <li>For each request, the token is included in the headers for authentication.</li>
+        </ol>
+        <img src="../../img/token-auth-diagram.jpg" alt="Token-Based Authentication Diagram" width="70%">
+    </section>
+
+    <section>
+        <h2>JWT Structure</h2>
+        <p>A JWT consists of three parts:</p>
+        <pre><code>HEADER.PAYLOAD.SIGNATURE</code></pre>
+        <p>Example:</p>
+        <pre><code>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInJvbGUiOiJ1c2VyIn0.G6D3T_lTfWn3Xg5xMi0l4HbcPbTI</code></pre>
+    </section>
+
+    <section>
+        <h2>Comparison Table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Session-Based</th>
+                    <th>Token-Based</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Storage</td>
+                    <td>Server</td>
+                    <td>Client (localStorage/sessionStorage)</td>
+                </tr>
+                <tr>
+                    <td>Scalability</td>
+                    <td>Less scalable (requires server memory)</td>
+                    <td>Highly scalable (stateless)</td>
+                </tr>
+                <tr>
+                    <td>Security</td>
+                    <td>More secure (server-controlled)</td>
+                    <td>Prone to token theft if stored in localStorage</td>
+                </tr>
+                <tr>
+                    <td>Usage</td>
+                    <td>Best for small applications</td>
+                    <td>Ideal for APIs and microservices</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <footer>
+        <p><a href="../../index.html">Back to Index</a></p>
+        <p>© 2025 Authentication Methods</p>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+</body>
+</html>
