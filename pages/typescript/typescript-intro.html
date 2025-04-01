@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to TypeScript</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="back-to-home">Home</a>
+        <h1>Introduction to TypeScript</h1>
+    </header>
+
+    <section>
+        <h2>What is TypeScript?</h2>
+        <p>TypeScript is a superset of JavaScript that adds static types. It helps developers catch errors early and write more maintainable code.</p>
+    </section>
+
+    <section>
+        <h2>JavaScript vs TypeScript</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>JavaScript</th>
+                    <th>TypeScript</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Dynamically typed</td>
+                    <td>Statically typed</td>
+                </tr>
+                <tr>
+                    <td>No compilation step required</td>
+                    <td>Requires transpilation to JavaScript</td>
+                </tr>
+                <tr>
+                    <td>Can lead to runtime errors</td>
+                    <td>Errors detected at compile time</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Example: JavaScript vs TypeScript</h2>
+        <div class="code-container">
+            <div class="code-block">
+                <h3>JavaScript</h3>
+                <pre><code>// JavaScript (No type checking)
+function add(a, b) {
+    return a + b;
+}
+console.log(add(5, "10")); // Outputs: "510" (string concatenation!)
+</code></pre>
+            </div>
+            <div class="code-block">
+                <h3>TypeScript</h3>
+                <pre><code>// TypeScript (Static types ensure correctness)
+function add(a: number, b: number): number {
+    return a + b;
+}
+console.log(add(5, 10)); // Outputs: 15
+</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Why Use TypeScript?</h2>
+        <ul>
+            <li><strong>Type Safety:</strong> Helps catch errors before runtime.</li>
+            <li><strong>Better Code Readability:</strong> Makes it easier to understand codebases.</li>
+            <li><strong>Enhanced IDE Support:</strong> Provides better autocomplete and refactoring.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Transpilation</h2>
+        <p>TypeScript code is transpiled into JavaScript using the TypeScript compiler (tsc).</p>
+        <pre><code>tsc myfile.ts</code></pre>
+        <p>This generates a JavaScript file that can run in the browser or Node.js.</p>
+    </section>
+
+    <section>
+        <h2>Linters and Configuration</h2>
+        <p>TypeScript works well with linters like ESLint and has a configuration file (<code>tsconfig.json</code>) to control compilation settings.</p>
+    </section>
+
+    <footer>
+        <p><a href="../../index.html">Back to Index</a></p>
+        <p>© 2025 TypeScript Notes</p>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+</body>
+</html>
