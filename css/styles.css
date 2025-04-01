@@ -294,6 +294,28 @@ body.dark-mode tr:hover {
     background-color: rgba(36, 76, 77, 0.2);
 }
 
+a {
+    color: #487a7b;  
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+    color: #244c4d;
+    text-shadow: 0px 0px 5px rgba(36, 76, 77, 0.5);
+}
+
+
+body.dark-mode a {
+    color: #b4e0e1; 
+}
+
+body.dark-mode a:hover {
+    color: #87c5c6;
+    text-shadow: 0px 0px 8px rgba(135, 197, 198, 0.7);
+}
+
 
 /* Scroll Effect */
 body::-webkit-scrollbar {
@@ -312,4 +334,5 @@ body::-webkit-scrollbar-thumb {
 html {
     scroll-behavior: smooth;
 }
+
 

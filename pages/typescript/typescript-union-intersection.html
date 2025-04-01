@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Union vs Intersection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="back-to-home">&#8592; Back to Home</a>
+        <h1>Union vs Intersection</h1>
+    </header>
+    
+    <section>
+        <h2>Union Types</h2>
+        <p>A union type allows a variable to hold multiple types.</p>
+        <pre><code>
+let value: string | number;
+value = "Hello"; // Valid
+value = 42; // Valid
+value = true; // ❌ Error: not a string or number
+        </code></pre>
+    </section>
+    
+    <section>
+        <h2>Intersection Types</h2>
+        <p>An intersection type combines multiple types into one.</p>
+        <pre><code>
+interface Person {
+    name: string;
+    age: number;
+}
+interface Employee {
+    role: string;
+}
+type Worker = Person & Employee;
+let worker: Worker = { name: "Alice", age: 30, role: "Developer" };
+        </code></pre>
+    </section>
+    
+    <section>
+        <h2>When to Use</h2>
+        <ul>
+            <li><strong>Use Union</strong> when a value can be one of multiple types.</li>
+            <li><strong>Use Intersection</strong> when combining multiple type requirements.</li>
+        </ul>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 TypeScript Notes</p>
+    </footer>
+</body>
+</html>

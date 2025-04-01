@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes, Interfaces & Types</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="back-to-home">&#8592; Back to Home</a>
+        <h1>Classes, Interfaces & Types</h1>
+    </header>
+    
+    <section>
+        <h2>Classes in TypeScript</h2>
+        <p>Classes define blueprints for objects, supporting encapsulation and inheritance.</p>
+        <pre><code>
+class Person {
+    name: string;
+    age: number;
+
+    constructor(name: string, age: number) {
+        this.name = name;
+        this.age = age;
+    }
+
+    greet(): void {
+        console.log(`Hello, my name is ${this.name}`);
+    }
+}
+let user = new Person("Alice", 30);
+user.greet();
+        </code></pre>
+    </section>
+    
+    <section>
+        <h2>Interfaces</h2>
+        <p>Interfaces define the structure of an object without implementation.</p>
+        <pre><code>
+interface User {
+    name: string;
+    age: number;
+}
+let user: User = { name: "Bob", age: 25 };
+        </code></pre>
+    </section>
+    
+    <section>
+        <h2>Type Aliases</h2>
+        <p>Types can be used similarly to interfaces but with more flexibility.</p>
+        <pre><code>
+type Employee = {
+    name: string;
+    role: string;
+};
+let worker: Employee = { name: "Eve", role: "Engineer" };
+        </code></pre>
+    </section>
+    
+    <section>
+        <h2>When to Use Interfaces vs Type Aliases</h2>
+        <ul>
+            <li><strong>Use interfaces</strong> when defining object shapes that may be extended.</li>
+            <li><strong>Use type aliases</strong> for complex types like unions or tuples.</li>
+        </ul>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 TypeScript Notes</p>
+    </footer>
+</body>
+</html>
