@@ -13,57 +13,43 @@
     </header>
     
     <section>
-        <h2>Classes in TypeScript</h2>
-        <p>Classes define blueprints for objects, supporting encapsulation and inheritance.</p>
-        <pre><code>
-class Person {
-    name: string;
-    age: number;
-
-    constructor(name: string, age: number) {
-        this.name = name;
-        this.age = age;
-    }
-
-    greet(): void {
-        console.log(`Hello, my name is ${this.name}`);
-    }
-}
-let user = new Person("Alice", 30);
-user.greet();
-        </code></pre>
-    </section>
-    
-    <section>
-        <h2>Interfaces</h2>
-        <p>Interfaces define the structure of an object without implementation.</p>
-        <pre><code>
-interface User {
-    name: string;
-    age: number;
-}
-let user: User = { name: "Bob", age: 25 };
-        </code></pre>
-    </section>
-    
-    <section>
-        <h2>Type Aliases</h2>
-        <p>Types can be used similarly to interfaces but with more flexibility.</p>
-        <pre><code>
-type Employee = {
-    name: string;
-    role: string;
-};
-let worker: Employee = { name: "Eve", role: "Engineer" };
-        </code></pre>
-    </section>
-    
-    <section>
-        <h2>When to Use Interfaces vs Type Aliases</h2>
+        <h2>Primitive Types</h2>
         <ul>
-            <li><strong>Use interfaces</strong> when defining object shapes that may be extended.</li>
-            <li><strong>Use type aliases</strong> for complex types like unions or tuples.</li>
+            <li><code>string</code>: Represents textual data</li>
+            <li><code>number</code>: Represents both integers and floats</li>
+            <li><code>boolean</code>: Represents <code>true</code> or <code>false</code></li>
+            <li><code>null</code> and <code>undefined</code>: Represent the absence of value</li>
+            <li><code>unknown</code>: A safer alternative to <code>any</code></li>
         </ul>
+    </section>
+    
+    <section>
+        <h2>Arrays</h2>
+        <p>Arrays can be declared in multiple ways:</p>
+        <pre><code>
+let numbers: number[] = [1, 2, 3];
+let names: Array<string> = ["Alice", "Bob"];
+        </code></pre>
+    </section>
+    
+    <section>
+        <h2>Enums</h2>
+        <pre><code>
+enum Color {
+    Red = "RED",
+    Green = "GREEN",
+    Blue = "BLUE"
+}
+let myColor: Color = Color.Red;
+        </code></pre>
+    </section>
+    
+    <section>
+        <h2>Avoid Using <code>any</code>!</h2>
+        <p>Using <code>any</code> removes type safety and should be avoided unless absolutely necessary.</p>
+        <pre><code>
+let value: any = "Hello"; // Avoid this when possible
+        </code></pre>
     </section>
     
     <footer>
