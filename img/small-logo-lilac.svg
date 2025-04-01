@@ -1,0 +1,8 @@
+<svg>
+    <!-- Logo in Muted Lilac -->
+    <g transform="translate(0, 30)">
+        <text x="20" y="40" font-family="Courier New, monospace" font-weight="bold" font-size="24" fill="#b19cd9">
+        &lt;jB&gt;
+        </text>
+    </g>
+</svg>
